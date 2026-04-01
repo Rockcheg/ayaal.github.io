@@ -28,7 +28,7 @@ const createProductCard = (product) => {
           <li><strong>Наличие:</strong> ${product.availability}</li>
         </ul>
         <div class="product-actions">
-          <a class="btn btn-primary" href="https://t.me/your_username?text=${telegramText}" target="_blank" rel="noopener">Заказать</a>
+          <a class="btn btn-primary" href="https://t.me/rockcheg?text=${telegramText}" target="_blank" rel="noopener">Заказать</a>
           <a class="btn btn-secondary" href="contacts.html">Контакты</a>
         </div>
       </div>
