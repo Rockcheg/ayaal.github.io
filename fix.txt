@@ -1,0 +1,588 @@
+<!-- catalog.html -->
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Каталог — JINAUTO14</title>
+  <meta name="description" content="Каталог автотоваров для Haval Dargo / Big Dog: цена, ориентировочная цена с доставкой и вес.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="logo" href="index.html">JINAUTO14</a>
+      <nav class="nav">
+        <a href="index.html">Главная</a>
+        <a href="catalog.html" class="active">Каталог</a>
+        <a href="order-parts.html">Запчасти под заказ</a>
+        <a href="delivery.html">Доставка и оплата</a>
+        <a href="contacts.html">Контакты</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <span class="eyebrow">Каталог</span>
+        <h1>Товары для Haval Dargo / Big Dog</h1>
+        <p class="lead narrow">Выберите нужную позицию и свяжитесь с нами через Telegram или MAX прямо из карточки товара.</p>
+      </div>
+    </section>
+
+    <section class="section section-tight">
+      <div class="container">
+        <div class="catalog-toolbar">
+          <input id="searchInput" class="input" type="search" placeholder="Поиск по названию товара">
+          <select id="categoryFilter" class="input input-select">
+            <option value="all">Все категории</option>
+          </select>
+        </div>
+        <div id="catalog-products" class="product-grid"></div>
+        <p id="emptyState" class="empty-state hidden">Ничего не найдено. Попробуйте изменить поиск или категорию.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <p>© <span id="year"></span> JINAUTO14</p>
+      <div class="footer-links">
+        <a href="index.html">Главная</a>
+        <a href="order-parts.html">Запчасти под заказ</a>
+        <a href="contacts.html">Контакты</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/constants.js"></script>
+  <script src="js/products.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
+
+<!-- contacts.html -->
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Контакты — JINAUTO14</title>
+  <meta name="description" content="Контакты магазина JINAUTO14.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="logo" href="index.html">JINAUTO14</a>
+      <nav class="nav">
+        <a href="index.html">Главная</a>
+        <a href="catalog.html">Каталог</a>
+        <a href="order-parts.html">Запчасти под заказ</a>
+        <a href="delivery.html">Доставка и оплата</a>
+        <a href="contacts.html" class="active">Контакты</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <span class="eyebrow">Контакты</span>
+        <h1>Связь с продавцом</h1>
+        <p class="lead narrow">Выберите удобный канал — отвечаем максимально быстро.</p>
+      </div>
+    </section>
+
+    <section class="section section-tight">
+      <div class="container grid grid-2">
+        <article class="feature-card">
+          <h2>Основные контакты</h2>
+          <ul class="contact-list">
+            <li><strong>Telegram:</strong> <a id="telegramLink" href="https://t.me/rockcheg" target="_blank" rel="noopener"><span id="telegramHandle">@rockcheg</span></a></li>
+            <li><strong>MAX:</strong> <a id="maxLink" href="https://max.ru/u/f9LHodD0cOK3VJKSWw46PwPjczhTn4l9KF5jp213YFvNL0iplgcGf20if_8" target="_blank" rel="noopener">Профиль MAX</a></li>
+            <li><strong>WhatsApp:</strong> <a id="whatsappLink" href="https://wa.me/79992450128" target="_blank" rel="noopener">+7 (999) 245-01-28</a></li>
+            <li><strong>Email:</strong> <a id="emailLink" href="mailto:rockcheg@gmail.com">rockcheg@gmail.com</a></li>
+          </ul>
+        </article>
+
+        <article class="feature-card">
+          <h2>Режим работы</h2>
+          <p>Ежедневно, 09:00–19:00</p>
+          <p>Заявки через сайт принимаются круглосуточно.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <p>© <span id="year"></span> JINAUTO14</p>
+      <div class="footer-links">
+        <a href="catalog.html">Каталог</a>
+        <a href="order-parts.html">Запчасти под заказ</a>
+        <a href="delivery.html">Доставка и оплата</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/constants.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
+
+<!-- delivery.html -->
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Доставка и оплата — JINAUTO14</title>
+  <meta name="description" content="Информация о доставке, расчёте стоимости и оплате.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="logo" href="index.html">JINAUTO14</a>
+      <nav class="nav">
+        <a href="index.html">Главная</a>
+        <a href="catalog.html">Каталог</a>
+        <a href="order-parts.html">Запчасти под заказ</a>
+        <a href="delivery.html" class="active">Доставка и оплата</a>
+        <a href="contacts.html">Контакты</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <span class="eyebrow">Доставка и оплата</span>
+        <h1>Условия заказа и доставки</h1>
+        <p class="lead narrow">Итоговая стоимость зависит от поставщика, веса и логистики. Перед оплатой мы обязательно подтверждаем финальную цену и сроки.</p>
+      </div>
+    </section>
+
+    <section class="section section-tight">
+      <div class="container grid grid-2">
+        <article class="feature-card">
+          <h2>Что видит клиент</h2>
+          <ul class="list-clean">
+            <li>Цена товара</li>
+            <li>Ориентировочная цена с доставкой</li>
+            <li>Вес товара</li>
+            <li>Срок поставки</li>
+          </ul>
+        </article>
+
+        <article class="feature-card">
+          <h2>Оплата и подтверждение</h2>
+          <p>После согласования заказа вы получаете финальные условия по стоимости и срокам. Оплата производится только после подтверждения всех деталей.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <p>© <span id="year"></span> JINAUTO14</p>
+      <div class="footer-links">
+        <a href="catalog.html">Каталог</a>
+        <a href="order-parts.html">Запчасти под заказ</a>
+        <a href="contacts.html">Контакты</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/constants.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
+
+<!-- index.html -->
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JINAUTO14 — автотовары для Haval Dargo / Big Dog</title>
+  <meta name="description" content="Каталог автотоваров для Haval Dargo / Big Dog 1 поколения: тюнинг, коврики, аксессуары и заявки на запчасти под заказ.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="logo" href="index.html">JINAUTO14</a>
+      <nav class="nav">
+        <a href="index.html" class="active">Главная</a>
+        <a href="catalog.html">Каталог</a>
+        <a href="order-parts.html">Запчасти под заказ</a>
+        <a href="delivery.html">Доставка и оплата</a>
+        <a href="contacts.html">Контакты</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">Для Haval Dargo / Big Dog 1 поколения</span>
+          <h1>Автотовары, тюнинг и полезные аксессуары</h1>
+          <p class="lead">Подбор и поставка запчастей и аксессуаров для вашего автомобиля. Прозрачные цены, помощь с выбором и оперативная связь.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="catalog.html">Открыть каталог</a>
+            <a class="btn btn-secondary" href="order-parts.html">Запчасти под заказ</a>
+          </div>
+          <ul class="hero-points">
+            <li>Тюнинг и аксессуары</li>
+            <li>Актуальные цены и наличие</li>
+            <li>Поддержка в Telegram и MAX</li>
+          </ul>
+        </div>
+        <div class="hero-card card-glow">
+          <h2>Почему выбирают нас</h2>
+          <ol class="steps-list">
+            <li>Понятные карточки товаров с ценой и характеристиками</li>
+            <li>Быстрая связь напрямую с продавцом</li>
+            <li>Оформление заказа в удобном мессенджере</li>
+            <li>Возможность заказать редкие запчасти по заявке</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">Категории</span>
+            <h2>Популярные разделы каталога</h2>
+          </div>
+        </div>
+        <div class="grid grid-3">
+          <article class="feature-card">
+            <h3>Коврики</h3>
+            <p>EVA, ворсовые, багажные и защитные решения под модель.</p>
+          </article>
+          <article class="feature-card">
+            <h3>Тюнинг</h3>
+            <p>Накладки, органайзеры, защита, элементы интерьера и экстерьера.</p>
+          </article>
+          <article class="feature-card">
+            <h3>Полезные аксессуары</h3>
+            <p>Компрессоры, бустеры, зарядки, держатели и полезные мелочи.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-muted">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">Пример товаров</span>
+            <h2>Популярные позиции</h2>
+          </div>
+          <a class="text-link" href="catalog.html">Смотреть весь каталог</a>
+        </div>
+        <div id="featured-products" class="product-grid"></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container cta-banner">
+        <div>
+          <span class="eyebrow">Нет нужной позиции?</span>
+          <h2>Оставьте заявку на запчасть под заказ</h2>
+          <p>Укажите модель, год и нужную деталь — мы свяжемся с вами для подтверждения наличия и сроков.</p>
+        </div>
+        <a class="btn btn-primary" href="order-parts.html">Оставить заявку</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <p>© <span id="year"></span> JINAUTO14</p>
+      <div class="footer-links">
+        <a href="catalog.html">Каталог</a>
+        <a href="order-parts.html">Запчасти под заказ</a>
+        <a href="contacts.html">Контакты</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/constants.js"></script>
+  <script src="js/products.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
+
+// js/app.js
+const siteLinks = window.SITE_LINKS || {};
+
+const formatPrice = (value) => new Intl.NumberFormat('ru-RU').format(value) + ' ₽';
+
+const createProductCard = (product) => {
+  const message = `Здравствуйте! Интересует товар: ${product.name} (${product.sku}).`;
+  const telegramMessage = encodeURIComponent(message);
+  const maxMessage = encodeURIComponent(message);
+
+  return `
+    <article class="product-card">
+      <div class="product-image-wrap">
+        <img src="${product.image}" alt="${product.name}">
+      </div>
+      <div class="product-content">
+        <span class="product-badge">${product.category}</span>
+        <h3 class="product-title">${product.name}</h3>
+        <p class="product-description">${product.description}</p>
+        <div class="product-prices">
+          <div class="price-box">
+            <span class="price-label">Цена товара</span>
+            <strong class="price-value">${formatPrice(product.price)}</strong>
+          </div>
+          <div class="price-box">
+            <span class="price-label">Примерно с доставкой</span>
+            <strong class="price-value">${formatPrice(product.deliveryPrice)}</strong>
+          </div>
+        </div>
+        <ul class="product-meta">
+          <li><strong>Вес:</strong> ${product.weight}</li>
+          <li><strong>Артикул:</strong> ${product.sku}</li>
+          <li><strong>Наличие:</strong> ${product.availability}</li>
+        </ul>
+        <div class="product-actions">
+          <a class="btn btn-primary" href="${siteLinks.telegramProfile}?text=${telegramMessage}" target="_blank" rel="noopener">Telegram</a>
+          <a class="btn btn-secondary" href="${siteLinks.maxProfile}?text=${maxMessage}" target="_blank" rel="noopener">MAX</a>
+        </div>
+      </div>
+    </article>
+  `;
+};
+
+const renderFeatured = () => {
+  const container = document.getElementById('featured-products');
+  if (!container || !Array.isArray(window.products)) return;
+  container.innerHTML = window.products.slice(0, 3).map(createProductCard).join('');
+};
+
+const populateCategories = () => {
+  const filter = document.getElementById('categoryFilter');
+  if (!filter || !Array.isArray(window.products)) return;
+
+  const categories = [...new Set(window.products.map((p) => p.category))].sort((a, b) => a.localeCompare(b, 'ru'));
+  categories.forEach((category) => {
+    const option = document.createElement('option');
+    option.value = category;
+    option.textContent = category;
+    filter.append(option);
+  });
+};
+
+const renderCatalog = () => {
+  const container = document.getElementById('catalog-products');
+  if (!container || !Array.isArray(window.products)) return;
+
+  const searchInput = document.getElementById('searchInput');
+  const categoryFilter = document.getElementById('categoryFilter');
+  const emptyState = document.getElementById('emptyState');
+
+  const search = searchInput?.value.trim().toLowerCase() || '';
+  const category = categoryFilter?.value || 'all';
+
+  const filteredProducts = window.products.filter((product) => {
+    const matchesSearch = `${product.name} ${product.description} ${product.sku}`.toLowerCase().includes(search);
+    const matchesCategory = category === 'all' || product.category === category;
+    return matchesSearch && matchesCategory;
+  });
+
+  container.innerHTML = filteredProducts.map(createProductCard).join('');
+  emptyState?.classList.toggle('hidden', filteredProducts.length > 0);
+};
+
+const bindCatalogControls = () => {
+  const searchInput = document.getElementById('searchInput');
+  const categoryFilter = document.getElementById('categoryFilter');
+  if (searchInput) searchInput.addEventListener('input', renderCatalog);
+  if (categoryFilter) categoryFilter.addEventListener('change', renderCatalog);
+};
+
+const updateYear = () => {
+  const yearEl = document.getElementById('year');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
+};
+
+const applySiteContacts = () => {
+  const telegramHandleEl = document.getElementById('telegramHandle');
+  const telegramLinkEl = document.getElementById('telegramLink');
+  const maxLinkEl = document.getElementById('maxLink');
+  const whatsappLinkEl = document.getElementById('whatsappLink');
+  const emailLinkEl = document.getElementById('emailLink');
+  const partsForm = document.getElementById('partsForm');
+
+  if (telegramHandleEl) telegramHandleEl.textContent = siteLinks.telegramHandle || '@rockcheg';
+  if (telegramLinkEl) telegramLinkEl.href = siteLinks.telegramProfile || 'https://t.me/rockcheg';
+  if (maxLinkEl) maxLinkEl.href = siteLinks.maxProfile || '#';
+
+  if (whatsappLinkEl) {
+    whatsappLinkEl.href = siteLinks.whatsapp || '#';
+    whatsappLinkEl.textContent = '+7 (999) 245-01-28';
+  }
+
+  if (emailLinkEl) {
+    emailLinkEl.href = siteLinks.email || '#';
+    emailLinkEl.textContent = siteLinks.emailText || 'rockcheg@gmail.com';
+  }
+
+  if (partsForm) {
+    partsForm.action = siteLinks.partsFormAction || partsForm.action;
+  }
+};
+
+document.addEventListener('DOMContentLoaded', () => {
+  updateYear();
+  applySiteContacts();
+  renderFeatured();
+  populateCategories();
+  renderCatalog();
+  bindCatalogControls();
+});
+
+// js/constants.js
+window.SITE_LINKS = {
+  telegramHandle: '@rockcheg',
+  telegramProfile: 'https://t.me/rockcheg',
+  maxProfile: 'https://max.ru/u/f9LHodD0cOK3VJKSWw46PwPjczhTn4l9KF5jp213YFvNL0iplgcGf20if_8',
+  whatsapp: 'https://wa.me/79992450128',
+  email: 'mailto:rockcheg@gmail.com',
+  emailText: 'rockcheg@gmail.com',
+  partsFormAction: 'https://formspree.io/f/mjgprneg'
+};
+
+<!-- order-parts.html -->
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Запчасти под заказ — JINAUTO14</title>
+  <meta name="description" content="Форма заявки на запчасти для Haval Dargo / Big Dog.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="logo" href="index.html">JINAUTO14</a>
+      <nav class="nav">
+        <a href="index.html">Главная</a>
+        <a href="catalog.html">Каталог</a>
+        <a href="order-parts.html" class="active">Запчасти под заказ</a>
+        <a href="delivery.html">Доставка и оплата</a>
+        <a href="contacts.html">Контакты</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <span class="eyebrow">Запчасти под заказ</span>
+        <h1>Подбор и заказ нужной детали</h1>
+        <p class="lead narrow">Заполните форму, и мы свяжемся с вами для уточнения стоимости, наличия и сроков поставки.</p>
+      </div>
+    </section>
+
+    <section class="section section-tight">
+      <div class="container form-layout">
+        <div class="form-card">
+          <h2>Оставить заявку</h2>
+          <form id="partsForm" class="parts-form" action="https://formspree.io/f/mjgprneg" method="POST">
+            <div class="form-grid">
+              <label>
+                <span>Имя</span>
+                <input class="input" type="text" name="name" required>
+              </label>
+              <label>
+                <span>Телефон / Telegram / MAX</span>
+                <input class="input" type="text" name="contact" required>
+              </label>
+              <label>
+                <span>Модель авто</span>
+                <input class="input" type="text" name="car_model" value="Haval Dargo / Big Dog 1" required>
+              </label>
+              <label>
+                <span>Год</span>
+                <input class="input" type="text" name="car_year" placeholder="например, 2023">
+              </label>
+              <label>
+                <span>VIN</span>
+                <input class="input" type="text" name="vin" placeholder="если есть">
+              </label>
+              <label>
+                <span>Название детали</span>
+                <input class="input" type="text" name="part_name" required>
+              </label>
+            </div>
+
+            <label>
+              <span>Комментарий</span>
+              <textarea class="input textarea" name="message" rows="6" placeholder="Например: нужна левая накладка в чёрном цвете"></textarea>
+            </label>
+
+            <input type="hidden" name="_subject" value="Новая заявка на запчасть с сайта JINAUTO14">
+            <input type="hidden" name="_language" value="ru">
+
+            <button class="btn btn-primary" type="submit">Отправить заявку</button>
+          </form>
+        </div>
+
+        <aside class="sidebar-card">
+          <h3>Что указать в заявке</h3>
+          <ul class="sidebar-list">
+            <li>Модель и год автомобиля</li>
+            <li>Название нужной детали</li>
+            <li>Фото детали или места установки</li>
+            <li>VIN для точного подбора (по возможности)</li>
+            <li>Удобный контакт для связи</li>
+          </ul>
+          <h3>Как мы работаем</h3>
+          <p>После получения заявки мы проверяем наличие у поставщиков, согласовываем итоговую цену и срок доставки, затем подтверждаем заказ с вами.</p>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <p>© <span id="year"></span> JINAUTO14</p>
+      <div class="footer-links">
+        <a href="catalog.html">Каталог</a>
+        <a href="delivery.html">Доставка и оплата</a>
+        <a href="contacts.html">Контакты</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/constants.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
