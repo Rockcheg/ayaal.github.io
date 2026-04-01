@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" role="img" aria-labelledby="title desc">
+  <title id="title">EVA коврики</title>
+  <desc id="desc">Декоративная заглушка для карточки товара.</desc>
+  <defs>
+    <linearGradient id="g" x1="0" x2="1">
+      <stop offset="0%" stop-color="#6ba8ff"/>
+      <stop offset="100%" stop-color="#8effb3"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="750" fill="#11182d"/>
+  <rect x="90" y="90" width="1020" height="570" rx="42" fill="none" stroke="url(#g)" stroke-width="8" opacity="0.7"/>
+  <text x="110" y="240" fill="#edf2ff" font-family="Inter, Arial, sans-serif" font-size="82" font-weight="800">EVA КОВРИКИ</text>
+  <text x="110" y="330" fill="#a9b4d0" font-family="Inter, Arial, sans-serif" font-size="36">Haval Dargo / Big Dog 1</text>
+  <rect x="110" y="410" width="180" height="180" rx="22" fill="#1b2646" stroke="#6ba8ff" opacity="0.9"/>
+  <rect x="330" y="410" width="180" height="180" rx="22" fill="#1b2646" stroke="#8effb3" opacity="0.9"/>
+  <rect x="550" y="410" width="180" height="180" rx="22" fill="#1b2646" stroke="#6ba8ff" opacity="0.9"/>
+  <rect x="770" y="410" width="180" height="180" rx="22" fill="#1b2646" stroke="#8effb3" opacity="0.9"/>
+</svg>

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" role="img" aria-labelledby="title desc">
+  <title id="title">Органайзер</title>
+  <desc id="desc">Декоративная заглушка для карточки товара.</desc>
+  <rect width="1200" height="750" fill="#10162b"/>
+  <rect x="80" y="80" width="1040" height="590" rx="44" fill="#15203d" stroke="#6ba8ff" stroke-width="8" opacity="0.7"/>
+  <text x="110" y="220" fill="#edf2ff" font-family="Inter, Arial, sans-serif" font-size="78" font-weight="800">ОРГАНАЙЗЕР</text>
+  <text x="110" y="300" fill="#a9b4d0" font-family="Inter, Arial, sans-serif" font-size="34">Тюнинг и интерьер</text>
+  <rect x="170" y="370" width="860" height="170" rx="30" fill="#0f1424" stroke="#8effb3" stroke-width="6"/>
+  <line x1="470" y1="370" x2="470" y2="540" stroke="#6ba8ff" stroke-width="6"/>
+  <line x1="720" y1="370" x2="720" y2="540" stroke="#6ba8ff" stroke-width="6"/>
+</svg>
