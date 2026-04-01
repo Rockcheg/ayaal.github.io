@@ -110,8 +110,10 @@ const applySiteContacts = () => {
   }
 
   if (emailLinkEl) {
-    emailLinkEl.href = siteLinks.email || '#';
-    emailLinkEl.textContent = siteLinks.emailText || 'rockcheg@gmail.com';
+    const emailHref = siteLinks.email || emailLinkEl.getAttribute('href') || '#';
+    const fallbackEmailText = emailHref.startsWith('mailto:') ? emailHref.replace('mailto:', '') : emailHref;
+    emailLinkEl.href = emailHref;
+    emailLinkEl.textContent = siteLinks.emailText || emailLinkEl.textContent.trim() || fallbackEmailText;
   }
 
   if (partsForm) {
