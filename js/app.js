@@ -1,7 +1,11 @@
+const siteLinks = window.SITE_LINKS || {};
+
 const formatPrice = (value) => new Intl.NumberFormat('ru-RU').format(value) + ' ₽';
 
 const createProductCard = (product) => {
-  const telegramText = encodeURIComponent(`Здравствуйте! Интересует товар: ${product.name} (${product.sku}).`);
+  const message = `Здравствуйте! Интересует товар: ${product.name} (${product.sku}).`;
+  const telegramMessage = encodeURIComponent(message);
+  const maxMessage = encodeURIComponent(message);
 
   return `
     <article class="product-card">
@@ -28,8 +32,8 @@ const createProductCard = (product) => {
           <li><strong>Наличие:</strong> ${product.availability}</li>
         </ul>
         <div class="product-actions">
-          <a class="btn btn-primary" href="https://t.me/rockcheg?text=${telegramText}" target="_blank" rel="noopener">Заказать</a>
-          <a class="btn btn-secondary" href="contacts.html">Контакты</a>
+          <a class="btn btn-primary" href="${siteLinks.telegramProfile}?text=${telegramMessage}" target="_blank" rel="noopener">Telegram</a>
+          <a class="btn btn-secondary" href="${siteLinks.maxProfile}?text=${maxMessage}" target="_blank" rel="noopener">MAX</a>
         </div>
       </div>
     </article>
@@ -88,8 +92,38 @@ const updateYear = () => {
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 };
 
+const applySiteContacts = () => {
+  const telegramHandleEl = document.getElementById('telegramHandle');
+  const telegramLinkEl = document.getElementById('telegramLink');
+  const maxLinkEl = document.getElementById('maxLink');
+  const whatsappLinkEl = document.getElementById('whatsappLink');
+  const emailLinkEl = document.getElementById('emailLink');
+  const partsForm = document.getElementById('partsForm');
+
+  if (telegramHandleEl) telegramHandleEl.textContent = siteLinks.telegramHandle || '@rockcheg';
+  if (telegramLinkEl) telegramLinkEl.href = siteLinks.telegramProfile || 'https://t.me/rockcheg';
+  if (maxLinkEl) maxLinkEl.href = siteLinks.maxProfile || '#';
+
+  if (whatsappLinkEl) {
+    whatsappLinkEl.href = siteLinks.whatsapp || '#';
+    whatsappLinkEl.textContent = '+7 (999) 245-01-28';
+  }
+
+  if (emailLinkEl) {
+    const emailHref = siteLinks.email || emailLinkEl.getAttribute('href') || '#';
+    const fallbackEmailText = emailHref.startsWith('mailto:') ? emailHref.replace('mailto:', '') : emailHref;
+    emailLinkEl.href = emailHref;
+    emailLinkEl.textContent = siteLinks.emailText || emailLinkEl.textContent.trim() || fallbackEmailText;
+  }
+
+  if (partsForm) {
+    partsForm.action = siteLinks.partsFormAction || partsForm.action;
+  }
+};
+
 document.addEventListener('DOMContentLoaded', () => {
   updateYear();
+  applySiteContacts();
   renderFeatured();
   populateCategories();
   renderCatalog();
