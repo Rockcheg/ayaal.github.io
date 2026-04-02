@@ -522,6 +522,29 @@ h3 { font-size: 21px; }
   border-bottom: 1px dashed rgba(95,72,32,.35);
 }
 
+.feature-card,
+.product-card,
+.hero-card {
+  transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+}
+
+.feature-card:hover,
+.product-card:hover,
+.hero-card:hover {
+  transform: translateY(-2px);
+  border-color: #d8bc85;
+  box-shadow: var(--shadow);
+}
+
+.contact-list li {
+  margin-bottom: 10px;
+}
+
+.contact-list a {
+  color: #5f4820;
+  border-bottom: 1px dashed rgba(95,72,32,.35);
+}
+
 .form-layout {
   display: grid;
   grid-template-columns: 1.2fr .8fr;
