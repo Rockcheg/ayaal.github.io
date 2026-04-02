@@ -15,6 +15,7 @@ const createProductCard = (product) => {
       <div class="product-content">
         <span class="product-badge">${product.category}</span>
         <h3 class="product-title">${product.name}</h3>
+        <p class="product-subcategory">${product.subcategory}</p>
         <p class="product-description">${product.description}</p>
         <div class="product-prices">
           <div class="price-box">
@@ -47,15 +48,37 @@ const renderFeatured = () => {
 };
 
 const populateCategories = () => {
-  const filter = document.getElementById('categoryFilter');
-  if (!filter || !Array.isArray(window.products)) return;
+  const categoryFilter = document.getElementById('categoryFilter');
+  if (!categoryFilter || !Array.isArray(window.products)) return;
 
   const categories = [...new Set(window.products.map((p) => p.category))].sort((a, b) => a.localeCompare(b, 'ru'));
   categories.forEach((category) => {
     const option = document.createElement('option');
     option.value = category;
     option.textContent = category;
-    filter.append(option);
+    categoryFilter.append(option);
+  });
+};
+
+const populateSubcategories = () => {
+  const subcategoryFilter = document.getElementById('subcategoryFilter');
+  const categoryFilter = document.getElementById('categoryFilter');
+  if (!subcategoryFilter || !categoryFilter || !Array.isArray(window.products)) return;
+
+  const selectedCategory = categoryFilter.value || 'all';
+  const subcategories = window.products
+    .filter((product) => selectedCategory === 'all' || product.category === selectedCategory)
+    .map((product) => product.subcategory)
+    .filter(Boolean);
+
+  const uniqueSubcategories = [...new Set(subcategories)].sort((a, b) => a.localeCompare(b, 'ru'));
+  subcategoryFilter.innerHTML = '<option value="all">Все подкатегории</option>';
+
+  uniqueSubcategories.forEach((subcategory) => {
+    const option = document.createElement('option');
+    option.value = subcategory;
+    option.textContent = subcategory;
+    subcategoryFilter.append(option);
   });
 };
 
@@ -65,15 +88,18 @@ const renderCatalog = () => {
 
   const searchInput = document.getElementById('searchInput');
   const categoryFilter = document.getElementById('categoryFilter');
+  const subcategoryFilter = document.getElementById('subcategoryFilter');
   const emptyState = document.getElementById('emptyState');
 
   const search = searchInput?.value.trim().toLowerCase() || '';
   const category = categoryFilter?.value || 'all';
+  const subcategory = subcategoryFilter?.value || 'all';
 
   const filteredProducts = window.products.filter((product) => {
-    const matchesSearch = `${product.name} ${product.description} ${product.sku}`.toLowerCase().includes(search);
+    const matchesSearch = `${product.name} ${product.description} ${product.sku} ${product.subcategory || ''}`.toLowerCase().includes(search);
     const matchesCategory = category === 'all' || product.category === category;
-    return matchesSearch && matchesCategory;
+    const matchesSubcategory = subcategory === 'all' || product.subcategory === subcategory;
+    return matchesSearch && matchesCategory && matchesSubcategory;
   });
 
   container.innerHTML = filteredProducts.map(createProductCard).join('');
@@ -83,8 +109,18 @@ const renderCatalog = () => {
 const bindCatalogControls = () => {
   const searchInput = document.getElementById('searchInput');
   const categoryFilter = document.getElementById('categoryFilter');
+  const subcategoryFilter = document.getElementById('subcategoryFilter');
+
   if (searchInput) searchInput.addEventListener('input', renderCatalog);
-  if (categoryFilter) categoryFilter.addEventListener('change', renderCatalog);
+
+  if (categoryFilter) {
+    categoryFilter.addEventListener('change', () => {
+      populateSubcategories();
+      renderCatalog();
+    });
+  }
+
+  if (subcategoryFilter) subcategoryFilter.addEventListener('change', renderCatalog);
 };
 
 const updateYear = () => {
@@ -126,6 +162,7 @@ document.addEventListener('DOMContentLoaded', () => {
   applySiteContacts();
   renderFeatured();
   populateCategories();
+  populateSubcategories();
   renderCatalog();
   bindCatalogControls();
 });
