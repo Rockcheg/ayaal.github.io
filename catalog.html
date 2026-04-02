@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Каталог — JINAUTO14</title>
-  <meta name="description" content="Каталог автотоваров для Haval Dargo / Big Dog: цена, примерная цена с доставкой и вес.">
+  <meta name="description" content="Каталог автотоваров для Haval Dargo / Big Dog: цена, ориентировочная цена с доставкой и вес.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -29,20 +29,23 @@
       <div class="container">
         <span class="eyebrow">Каталог</span>
         <h1>Товары для Haval Dargo / Big Dog</h1>
-        <p class="lead narrow">Карточки уже показывают цену товара, ориентировочную цену с доставкой и вес. Это можно менять в одном файле без ручной правки каждой страницы.</p>
+        <p class="lead narrow">Выберите нужную позицию и свяжитесь с нами через Telegram или MAX прямо из карточки товара.</p>
       </div>
     </section>
 
     <section class="section section-tight">
       <div class="container">
         <div class="catalog-toolbar">
-          <input id="searchInput" class="input" type="search" placeholder="Поиск по названию товара">
+          <input id="searchInput" class="input" type="search" placeholder="Поиск по названию, описанию, артикулу">
           <select id="categoryFilter" class="input input-select">
             <option value="all">Все категории</option>
           </select>
+          <select id="subcategoryFilter" class="input input-select">
+            <option value="all">Все подкатегории</option>
+          </select>
         </div>
         <div id="catalog-products" class="product-grid"></div>
-        <p id="emptyState" class="empty-state hidden">Ничего не найдено. Попробуй изменить поиск или категорию.</p>
+        <p id="emptyState" class="empty-state hidden">Ничего не найдено. Попробуйте изменить поиск или категорию.</p>
       </div>
     </section>
   </main>
@@ -58,6 +61,7 @@
     </div>
   </footer>
 
+  <script src="js/constants.js"></script>
   <script src="js/products.js"></script>
   <script src="js/app.js"></script>
 </body>
