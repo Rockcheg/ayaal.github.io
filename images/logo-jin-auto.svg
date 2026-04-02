@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200" fill="none">
+  <defs>
+    <linearGradient id="gold" x1="24" y1="24" x2="176" y2="176" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F4DDAB"/>
+      <stop offset="0.5" stop-color="#C8A55A"/>
+      <stop offset="1" stop-color="#9F7935"/>
+    </linearGradient>
+  </defs>
+  <circle cx="100" cy="100" r="92" fill="#141518"/>
+  <circle cx="100" cy="100" r="84" stroke="url(#gold)" stroke-width="8"/>
+  <circle cx="100" cy="100" r="58" stroke="url(#gold)" stroke-width="5" opacity="0.8"/>
+  <path d="M100 40L112 84H158L121 110L134 154L100 127L66 154L79 110L42 84H88L100 40Z" fill="url(#gold)" opacity="0.95"/>
+  <rect x="38" y="132" width="124" height="28" rx="14" fill="#0F0F10" stroke="url(#gold)" stroke-width="3"/>
+  <text x="100" y="151" text-anchor="middle" font-size="14" font-family="Inter, Arial, sans-serif" font-weight="700" fill="#F2E7CF">JIN AUTO</text>
+</svg>
