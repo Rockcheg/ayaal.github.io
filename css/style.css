@@ -377,6 +377,12 @@ h3 { font-size: 21px; }
   font-weight: 500;
 }
 
+.product-subcategory {
+  margin-top: 8px;
+  color: #7f7568;
+  font-size: 14px;
+}
+
 .product-description {
   margin: 0;
   min-height: 60px;
@@ -444,9 +450,26 @@ h3 { font-size: 21px; }
   color: #6f5422;
 }
 
+.availability-pill.is-in-stock {
+  border-color: rgba(142,255,179,.45);
+  background: rgba(142,255,179,.08);
+  color: #c8ffd9;
+}
+
+.availability-pill.is-by-order {
+  border-color: rgba(107,168,255,.45);
+  background: rgba(107,168,255,.08);
+  color: #cfe1ff;
+}
+
+.price-box-delivery {
+  background: linear-gradient(135deg, rgba(107,168,255,.14), rgba(142,255,179,.08));
+}
+
 .product-actions {
   display: flex;
   gap: 10px;
+  margin-top: 2px;
 }
 
 .product-actions .btn {
