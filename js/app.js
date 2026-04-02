@@ -6,6 +6,7 @@ const createProductCard = (product) => {
   const message = `Здравствуйте! Интересует товар: ${product.name} (${product.sku}).`;
   const telegramMessage = encodeURIComponent(message);
   const maxMessage = encodeURIComponent(message);
+  const availabilityClass = product.availability.toLowerCase().includes('в наличии') ? 'is-in-stock' : 'is-by-order';
 
   return `
     <article class="product-card">
@@ -22,15 +23,15 @@ const createProductCard = (product) => {
             <span class="price-label">Цена товара</span>
             <strong class="price-value">${formatPrice(product.price)}</strong>
           </div>
-          <div class="price-box">
-            <span class="price-label">Примерно с доставкой</span>
+          <div class="price-box price-box-delivery">
+            <span class="price-label">Цена с доставкой</span>
             <strong class="price-value">${formatPrice(product.deliveryPrice)}</strong>
           </div>
         </div>
         <ul class="product-meta">
           <li><strong>Вес:</strong> ${product.weight}</li>
           <li><strong>Артикул:</strong> ${product.sku}</li>
-          <li><strong>Наличие:</strong> ${product.availability}</li>
+          <li class="availability-pill ${availabilityClass}"><strong>Наличие:</strong> ${product.availability}</li>
         </ul>
         <div class="product-actions">
           <a class="btn btn-primary" href="${siteLinks.telegramProfile}?text=${telegramMessage}" target="_blank" rel="noopener">Telegram</a>
