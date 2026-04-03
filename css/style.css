@@ -64,9 +64,9 @@ img { max-width: 100%; display: block; }
 }
 
 .logo-media {
-  width: 44px;
-  height: 44px;
-  border-radius: 12px;
+  width: 58px;
+  height: 58px;
+  border-radius: 14px;
   overflow: hidden;
   background: #121315;
   border: 1px solid rgba(216,188,133,.45);
@@ -87,12 +87,12 @@ img { max-width: 100%; display: block; }
 }
 
 .logo-text strong {
-  font-size: 17px;
+  font-size: 20px;
   letter-spacing: .08em;
 }
 
 .logo-text small {
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: .2em;
   color: #d7be85;
 }
@@ -615,6 +615,7 @@ h3 { font-size: 21px; }
   .hero-card, .feature-card, .form-card, .sidebar-card, .cta-banner { padding: 20px; }
   .nav { gap: 6px; }
   .nav a { padding: 8px 10px; font-size: 14px; }
-  .logo-media { width: 36px; height: 36px; border-radius: 10px; }
-  .logo-text strong { font-size: 15px; }
+  .logo-media { width: 42px; height: 42px; border-radius: 10px; }
+  .logo-text strong { font-size: 16px; }
+  .logo-text small { font-size: 10px; }
 }
