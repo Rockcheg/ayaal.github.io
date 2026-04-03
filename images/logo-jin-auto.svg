@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="220" height="220" viewBox="0 0 220 220" fill="none">
+  <defs>
+    <linearGradient id="gold" x1="25" y1="25" x2="195" y2="195" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F4DFAF"/>
+      <stop offset="0.48" stop-color="#C8A55A"/>
+      <stop offset="1" stop-color="#9D7732"/>
+    </linearGradient>
+  </defs>
+
+  <circle cx="110" cy="110" r="100" fill="#121316"/>
+  <circle cx="110" cy="110" r="92" stroke="url(#gold)" stroke-width="8"/>
+  <circle cx="110" cy="110" r="68" stroke="url(#gold)" stroke-width="6"/>
+
+  <g stroke="url(#gold)" stroke-width="4" stroke-linecap="round" opacity="0.9">
+    <line x1="110" y1="42" x2="110" y2="178"/>
+    <line x1="42" y1="110" x2="178" y2="110"/>
+    <line x1="62" y1="62" x2="158" y2="158"/>
+    <line x1="158" y1="62" x2="62" y2="158"/>
+    <line x1="76" y1="48" x2="144" y2="172"/>
+    <line x1="144" y1="48" x2="76" y2="172"/>
+  </g>
+
+  <rect x="32" y="142" width="156" height="34" rx="17" fill="#0F1012" stroke="url(#gold)" stroke-width="3"/>
+  <text x="110" y="164" text-anchor="middle" font-size="16" font-family="Inter, Arial, sans-serif" font-weight="700" fill="#F3E8D0">JIN AUTO</text>
+</svg>
