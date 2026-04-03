@@ -12,6 +12,8 @@
   --accent-strong: #ad883f;
   --accent-soft: #efe2c5;
   --success: #2f8a58;
+  --card-frame: #2a2d33;
+  --card-accent-line: #c7a056;
   --shadow: 0 20px 48px rgba(22, 16, 8, .14);
   --shadow-soft: 0 12px 28px rgba(22, 16, 8, .08);
   --radius: 20px;
@@ -288,10 +290,11 @@ h3 { font-size: 21px; }
   grid-template-columns: 1.3fr .85fr .85fr;
   gap: 12px;
   margin-bottom: 26px;
-  background: #f9f6f0;
-  border: 1px solid #ddd3c2;
+  background: linear-gradient(180deg, #fbf8f2, #f3ecdf);
+  border: 1px solid #d8c8ad;
   border-radius: 16px;
   padding: 12px;
+  box-shadow: 0 10px 24px rgba(27, 20, 10, .08);
 }
 
 .input {
@@ -334,18 +337,28 @@ h3 { font-size: 21px; }
   display: flex;
   flex-direction: column;
   min-height: 100%;
-  border: 1px solid #d8c8a9;
+  border: 1px solid #d4c1a0;
   background:
-    linear-gradient(180deg, #fffdf9 0%, #f8f2e8 100%);
-  box-shadow: 0 16px 32px rgba(25,18,9,.1);
+    linear-gradient(150deg, #ffffff 0%, #f7f0e3 55%, #f4e8d2 100%);
+  box-shadow: 0 20px 40px rgba(21, 15, 7, .12);
+  position: relative;
+}
+
+.product-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 4px;
+  background: linear-gradient(90deg, #e2c88c, #b38940);
+  z-index: 2;
 }
 
 .product-image-wrap {
   aspect-ratio: 16 / 10;
   background:
-    radial-gradient(circle at 80% 20%, rgba(200,165,90,.45), transparent 35%),
-    linear-gradient(145deg, #23252b, #121316);
-  border-bottom: 2px solid #d3b67e;
+    radial-gradient(circle at 80% 20%, rgba(200,165,90,.52), transparent 38%),
+    linear-gradient(145deg, #2a2d33, #16181c);
+  border-bottom: 1px solid #b7924d;
 }
 
 .product-image-wrap img {
@@ -360,6 +373,7 @@ h3 { font-size: 21px; }
   display: grid;
   gap: 10px;
   position: relative;
+  z-index: 1;
 }
 
 .product-content::before {
@@ -370,7 +384,7 @@ h3 { font-size: 21px; }
   bottom: 14px;
   width: 4px;
   border-radius: 0 6px 6px 0;
-  background: linear-gradient(180deg, #d9bb80, #ad853d);
+  background: linear-gradient(180deg, #e0c485, #ad833a);
 }
 
 .product-badge {
@@ -380,9 +394,10 @@ h3 { font-size: 21px; }
   border-radius: 999px;
   font-size: 12px;
   font-weight: 700;
-  background: #17181b;
-  color: #f1e3c2;
-  border: 1px solid #7f6130;
+  background: linear-gradient(145deg, #2b2f36, #1c1f24);
+  color: #f2e2bd;
+  border: 1px solid #8e6b32;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.08);
 }
 
 .product-title {
@@ -415,13 +430,13 @@ h3 { font-size: 21px; }
 .price-box {
   padding: 11px 12px;
   border-radius: 12px;
-  background: #f4eee1;
-  border: 1px solid #dccdb2;
+  background: linear-gradient(180deg, #fbf7ef, #f2e9d9);
+  border: 1px solid #dac7a5;
 }
 
 .price-box-delivery {
-  background: linear-gradient(145deg, #23252b, #17191c);
-  border-color: #8d6a2f;
+  background: linear-gradient(145deg, #fff8e8, #edd8ad);
+  border-color: #c59e55;
 }
 
 .price-label {
@@ -438,11 +453,11 @@ h3 { font-size: 21px; }
 }
 
 .price-box-delivery .price-label {
-  color: #d8c59a;
+  color: #6e5020;
 }
 
 .price-box-delivery .price-value {
-  color: #f1ddab;
+  color: #5e4318;
 }
 
 .product-meta {
@@ -457,8 +472,8 @@ h3 { font-size: 21px; }
 .product-meta li {
   padding: 7px 10px;
   border-radius: 10px;
-  background: #f5efe4;
-  border: 1px solid #d9ccb7;
+  background: #f7f1e6;
+  border: 1px solid #d4c2a3;
   font-size: 13px;
 }
 
@@ -488,13 +503,13 @@ h3 { font-size: 21px; }
 }
 
 .product-actions .btn-primary {
-  background: linear-gradient(145deg, #1f2126, #121316);
+  background: linear-gradient(145deg, #272b32, #15181d);
   color: #f3e5c4;
   border: 1px solid #8e6d34;
 }
 
 .product-actions .btn-secondary {
-  background: linear-gradient(145deg, #e0c27d, #b98f44);
+  background: linear-gradient(145deg, #e8cd93, #c0974d);
   color: #18130b;
   border: 1px solid #9a7435;
 }
@@ -511,29 +526,6 @@ h3 { font-size: 21px; }
   transform: translateY(-4px);
   border-color: #c8a55a;
   box-shadow: 0 26px 45px rgba(24,18,10,.16);
-}
-
-.contact-list li {
-  margin-bottom: 10px;
-}
-
-.contact-list a {
-  color: #5f4820;
-  border-bottom: 1px dashed rgba(95,72,32,.35);
-}
-
-.feature-card,
-.product-card,
-.hero-card {
-  transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
-}
-
-.feature-card:hover,
-.product-card:hover,
-.hero-card:hover {
-  transform: translateY(-2px);
-  border-color: #d8bc85;
-  box-shadow: var(--shadow);
 }
 
 .contact-list li {
