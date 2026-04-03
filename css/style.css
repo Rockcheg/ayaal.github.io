@@ -355,9 +355,7 @@ h3 { font-size: 21px; }
 
 .product-image-wrap {
   aspect-ratio: 16 / 10;
-  background:
-    radial-gradient(circle at 80% 20%, rgba(200,165,90,.52), transparent 38%),
-    linear-gradient(145deg, #2a2d33, #16181c);
+  background: linear-gradient(165deg, #2b2d32, #1a1c20);
   border-bottom: 1px solid #b7924d;
 }
 
@@ -365,7 +363,7 @@ h3 { font-size: 21px; }
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: .94;
+  opacity: .96;
 }
 
 .product-content {
