@@ -61,7 +61,7 @@ window.products = [
     weight: '1.0 кг',
     sku: 'EXT-DEF-018',
     availability: 'Под заказ',
-    image: 'images/Карточка дефлектор 1.svg',
+    image: 'images/deflector-card-1.svg',
     description: 'Комплект дефлекторов на 4 двери для комфортного проветривания в любую погоду.'
   },
   {
