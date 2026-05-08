@@ -24,7 +24,7 @@ const createProductCard = (product) => {
             <strong class="price-value">${formatPrice(product.price)}</strong>
           </div>
           <div class="price-box price-box-delivery">
-            <span class="price-label">Цена с доставкой</span>
+            <span class="price-label">Ориентировочно с доставкой</span>
             <strong class="price-value">${formatPrice(product.deliveryPrice)}</strong>
           </div>
         </div>
