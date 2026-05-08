@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Товар — JINAUTO14</title>
+  <meta name="description" content="Карточка товара JIN AUTO: цена, доставка, характеристики и заказ через мессенджеры.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="logo" href="index.html" aria-label="JIN AUTO">
+        <span class="logo-media">
+          <img class="logo-image" src="images/logo-jin-auto.png" alt="JIN AUTO logo" onerror="this.onerror=null;this.src='images/logo-jin-auto.svg'">
+        </span>
+        <span class="logo-text"><strong>JIN AUTO</strong><small>.RU14</small></span>
+      </a>
+      <nav class="nav">
+        <a href="index.html">Главная</a>
+        <a href="catalog.html" class="active">Каталог</a>
+        <a href="order-parts.html">Запчасти под заказ</a>
+        <a href="delivery.html">Доставка и оплата</a>
+        <a href="contacts.html">Контакты</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero section-tight">
+      <div class="container">
+        <nav id="breadcrumbs" class="breadcrumbs"></nav>
+      </div>
+    </section>
+
+    <section class="section section-tight">
+      <div class="container" id="productPage"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <p>© <span id="year"></span> JINAUTO14</p>
+      <div class="footer-links">
+        <a href="catalog.html">Каталог</a>
+        <a href="order-parts.html">Запчасти под заказ</a>
+        <a href="contacts.html">Контакты</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/constants.js"></script>
+  <script src="js/products.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/product-page.js"></script>
+</body>
+</html>

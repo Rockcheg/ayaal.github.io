@@ -10,6 +10,7 @@ window.products = [
     sku: 'INT-MAT-001',
     availability: 'В наличии',
     image: 'images/placeholder-eva.svg',
+    images: ['images/placeholder-eva.svg', 'images/placeholder-console.svg', 'images/placeholder-booster.svg'],
     description: 'Комплект EVA ковриков с бортиками для салона Haval Dargo / Big Dog 1 поколения.'
   },
   {
@@ -23,6 +24,7 @@ window.products = [
     sku: 'INT-HOLD-014',
     availability: 'В наличии',
     image: 'images/placeholder-console.svg',
+    images: ['images/placeholder-console.svg', 'images/placeholder-eva.svg'],
     description: 'Надёжный магнитный держатель для телефона и навигации с установкой без сверления.'
   },
   {
@@ -61,7 +63,7 @@ window.products = [
     weight: '1.0 кг',
     sku: 'EXT-DEF-018',
     availability: 'Под заказ',
-    image: 'images/shapka_deflector_1.svg',
+    image: 'images/placeholder-console.svg',
     description: 'Комплект дефлекторов на 4 двери для комфортного проветривания в любую погоду.'
   },
   {
@@ -101,6 +103,7 @@ window.products = [
     sku: 'PRT-MUD-009',
     availability: 'В наличии',
     image: 'images/placeholder-eva.svg',
+    images: ['images/placeholder-eva.svg', 'images/placeholder-console.svg', 'images/placeholder-booster.svg'],
     description: 'Комплект передних и задних брызговиков для защиты кузова от грязи и камней.'
   },
   {
@@ -127,6 +130,7 @@ window.products = [
     sku: 'GAD-COMP-030',
     availability: 'В наличии',
     image: 'images/placeholder-booster.svg',
+    images: ['images/placeholder-booster.svg', 'images/placeholder-console.svg'],
     description: 'Компактный компрессор для подкачки шин с цифровым индикатором давления.'
   },
   {

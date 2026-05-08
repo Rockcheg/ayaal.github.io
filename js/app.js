@@ -9,7 +9,7 @@ const createProductCard = (product) => {
   const availabilityClass = product.availability.toLowerCase().includes('в наличии') ? 'is-in-stock' : 'is-by-order';
 
   return `
-    <article class="product-card">
+    <article class="product-card" data-product-id="${product.id}">
       <div class="product-image-wrap">
         <img src="${product.image}" alt="${product.name}">
       </div>
@@ -104,6 +104,7 @@ const renderCatalog = () => {
   });
 
   container.innerHTML = filteredProducts.map(createProductCard).join('');
+  bindProductCards();
   emptyState?.classList.toggle('hidden', filteredProducts.length > 0);
 };
 
@@ -122,6 +123,27 @@ const bindCatalogControls = () => {
   }
 
   if (subcategoryFilter) subcategoryFilter.addEventListener('change', renderCatalog);
+};
+
+const bindProductCards = () => {
+  document.querySelectorAll('.product-card').forEach((card) => {
+    const id = card.getAttribute('data-product-id');
+    if (!id) return;
+
+    card.addEventListener('click', (event) => {
+      if (event.target.closest('a, button')) return;
+      window.location.href = `product.html?id=${id}`;
+    });
+
+    card.addEventListener('keydown', (event) => {
+      if (event.key !== 'Enter' && event.key !== ' ') return;
+      if (event.target.closest('a, button')) return;
+      event.preventDefault();
+      window.location.href = `product.html?id=${id}`;
+    });
+
+    card.tabIndex = 0;
+  });
 };
 
 const updateYear = () => {
