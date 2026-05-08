@@ -13,7 +13,12 @@
 <body>
   <header class="site-header">
     <div class="container nav-wrap">
-      <a class="logo" href="index.html">JINAUTO14</a>
+      <a class="logo" href="index.html" aria-label="JIN AUTO">
+        <span class="logo-media">
+          <img class="logo-image" src="images/logo-jin-auto.png" alt="JIN AUTO logo" onerror="this.onerror=null;this.src='images/logo-jin-auto.svg'">
+        </span>
+        <span class="logo-text"><strong>JIN AUTO</strong><small>.RU14</small></span>
+      </a>
       <nav class="nav">
         <a href="index.html">Главная</a>
         <a href="catalog.html">Каталог</a>
@@ -27,9 +32,9 @@
   <main>
     <section class="page-hero">
       <div class="container">
-        <span class="eyebrow">Форма заявки</span>
-        <h1>Запчасти под заказ</h1>
-        <p class="lead narrow">Эта страница уже готова под приём заявок. Для отправки уведомлений на почту подключи Formspree и подставь свой URL формы в код.</p>
+        <span class="eyebrow">Запчасти под заказ</span>
+        <h1>Подбор и заказ нужной детали</h1>
+        <p class="lead narrow">Заполните форму, и мы свяжемся с вами для уточнения стоимости, наличия и сроков поставки.</p>
       </div>
     </section>
 
@@ -37,14 +42,14 @@
       <div class="container form-layout">
         <div class="form-card">
           <h2>Оставить заявку</h2>
-          <form class="parts-form" action="https://formspree.io/f/mjgprneg" method="POST">
+          <form id="partsForm" class="parts-form" action="https://formspree.io/f/mjgprneg" method="POST">
             <div class="form-grid">
               <label>
                 <span>Имя</span>
                 <input class="input" type="text" name="name" required>
               </label>
               <label>
-                <span>Телефон / Telegram</span>
+                <span>Телефон / Telegram / MAX</span>
                 <input class="input" type="text" name="contact" required>
               </label>
               <label>
@@ -66,29 +71,28 @@
             </div>
 
             <label>
-              <span>Описание / комментарий</span>
-              <textarea class="input textarea" name="message" rows="6" placeholder="Например: нужна левая накладка, желательно в чёрном цвете"></textarea>
+              <span>Комментарий</span>
+              <textarea class="input textarea" name="message" rows="6" placeholder="Например: нужна левая накладка в чёрном цвете"></textarea>
             </label>
 
             <input type="hidden" name="_subject" value="Новая заявка на запчасть с сайта JINAUTO14">
             <input type="hidden" name="_language" value="ru">
 
             <button class="btn btn-primary" type="submit">Отправить заявку</button>
-            <p class="form-note">После подключения Formspree заявки будут приходить на твою почту. Пока ID формы не заменён, форма работать не будет.</p>
           </form>
         </div>
 
         <aside class="sidebar-card">
-          <h3>Что попросить у клиента</h3>
+          <h3>Что указать в заявке</h3>
           <ul class="sidebar-list">
-            <li>Модель и год авто</li>
-            <li>Название детали</li>
-            <li>Фото детали или зоны установки</li>
-            <li>VIN, если нужен точный подбор</li>
-            <li>Контакт для обратной связи</li>
+            <li>Модель и год автомобиля</li>
+            <li>Название нужной детали</li>
+            <li>Фото детали или места установки</li>
+            <li>VIN для точного подбора (по возможности)</li>
+            <li>Удобный контакт для связи</li>
           </ul>
-          <h3>Как получать уведомления</h3>
-          <p>GitHub Pages размещает только статические файлы, поэтому сама по себе страница не отправляет письма. Для уведомлений удобно подключить Formspree или EmailJS.</p>
+          <h3>Как мы работаем</h3>
+          <p>После получения заявки мы проверяем наличие у поставщиков, согласовываем итоговую цену и срок доставки, затем подтверждаем заказ с вами.</p>
         </aside>
       </div>
     </section>
@@ -105,6 +109,7 @@
     </div>
   </footer>
 
+  <script src="js/constants.js"></script>
   <script src="js/app.js"></script>
 </body>
 </html>
