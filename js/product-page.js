@@ -65,7 +65,7 @@
             <a class="btn btn-primary" target="_blank" rel="noopener" href="${siteLinks.telegramProfile}?text=${msg}">Заказать в Telegram</a>
             <a class="btn btn-secondary" target="_blank" rel="noopener" href="${siteLinks.maxProfile}?text=${msg}">Написать в MAX</a>
             <a class="btn btn-secondary" target="_blank" rel="noopener" href="${siteLinks.whatsapp}?text=${msg}">WhatsApp</a>
-            <a class="btn btn-secondary" href="catalog.html">Назад в каталог</a>
+            <a class="btn btn-back-catalog" href="catalog.html">← Вернуться в каталог</a>
           </div>
         </aside>
       </div>
@@ -73,11 +73,12 @@
         <div class="grid grid-2">
           <article class="feature-card"><h2>Описание</h2><p>${product.description}</p></article>
           <article class="feature-card"><h2>Характеристики товара</h2><ul class="list-clean"><li>${product.category}</li><li>${product.subcategory}</li><li>Артикул: ${product.sku}</li><li>Вес: ${product.weight}</li></ul></article>
-          <article class="feature-card"><h2>Условия заказа и доставки</h2><p>Финальная стоимость и срок подтверждаются перед оплатой. Мы уточняем наличие у поставщика и согласовываем все детали.</p></article>
-          <article class="feature-card"><h2>Подходит для Haval Dargo / Big Dog 1 поколения</h2><p>Товар добавлен в профильный каталог для Haval Dargo / Big Dog 1 поколения.</p></article>
           <article class="feature-card"><h2>Как оформить заказ</h2><ol class="steps-list"><li>Откройте удобный мессенджер</li><li>Отправьте сообщение по кнопке выше</li><li>Подтвердите наличие, цену и срок доставки</li></ol></article>
-          <article class="feature-card"><h2>Похожие товары</h2><div class="related-links" id="relatedProducts"></div></article>
         </div>
+        <article class="related-section">
+          <h2>Похожие товары</h2>
+          <div class="related-links" id="relatedProducts"></div>
+        </article>
       </section>
     `;
 
@@ -86,7 +87,7 @@
     if (relatedEl) {
       relatedEl.innerHTML = related.length
         ? related.map((p) => `<a class="text-link" href="product.html?id=${p.id}">${p.name}</a>`).join('<br>')
-        : '<span class="empty-state">Пока нет похожих товаров.</span>';
+        : '<span class="empty-state">Похожие товары пока не добавлены.</span>';
     }
 
     const mainImg = document.getElementById('mainProductImage');
