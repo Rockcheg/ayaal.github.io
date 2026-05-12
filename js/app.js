@@ -2,6 +2,14 @@ const siteLinks = window.SITE_LINKS || {};
 
 const formatPrice = (value) => new Intl.NumberFormat('ru-RU').format(value) + ' ₽';
 
+const getTrustBadges = (product) => {
+  const badges = [];
+  if (product.testedByUs) badges.push('<span class="trust-badge">Проверено нами</span>');
+  if (product.supplierType === 'factory') badges.push('<span class="trust-badge">От производителя</span>');
+  if (product.supplierType === 'supplier') badges.push('<span class="trust-badge">Профильный поставщик</span>');
+  return badges.join('');
+};
+
 const createProductCard = (product) => {
   const message = `Здравствуйте! Интересует товар: ${product.name} (${product.sku}).`;
   const telegramMessage = encodeURIComponent(message);
@@ -15,6 +23,7 @@ const createProductCard = (product) => {
       </div>
       <div class="product-content">
         <span class="product-badge">${product.category}</span>
+        <div class="trust-badges">${getTrustBadges(product)}</div>
         <h3 class="product-title">${product.name}</h3>
         <p class="product-subcategory">${product.subcategory}</p>
         <p class="product-description">${product.description}</p>

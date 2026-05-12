@@ -9,6 +9,8 @@ window.products = [
     weight: '2.6 кг',
     sku: 'INT-MAT-001',
     availability: 'В наличии',
+    testedByUs: true,
+    supplierType: 'factory',
     image: 'images/placeholder-eva.svg',
     images: ['images/placeholder-eva.svg', 'images/placeholder-console.svg', 'images/placeholder-booster.svg'],
     description: 'Комплект EVA ковриков с бортиками для салона Haval Dargo / Big Dog 1 поколения.'
@@ -23,6 +25,8 @@ window.products = [
     weight: '0.4 кг',
     sku: 'INT-HOLD-014',
     availability: 'В наличии',
+    testedByUs: true,
+    supplierType: 'supplier',
     image: 'images/placeholder-console.svg',
     images: ['images/placeholder-console.svg', 'images/placeholder-eva.svg'],
     description: 'Надёжный магнитный держатель для телефона и навигации с установкой без сверления.'
@@ -89,6 +93,7 @@ window.products = [
     weight: '0.9 кг',
     sku: 'LGT-GRL-027',
     availability: 'В наличии',
+    supplierType: 'factory',
     image: 'images/placeholder-booster.svg',
     description: 'Оранжевые маркерные огни на решётку радиатора в внедорожном стиле.'
   },

@@ -4,6 +4,13 @@
 
   const formatPrice = (value) => new Intl.NumberFormat('ru-RU').format(value) + ' ₽';
   const getIdFromQuery = () => new URLSearchParams(window.location.search).get('id');
+  const getTrustBadges = (product) => {
+    const badges = [];
+    if (product.testedByUs) badges.push('<span class="trust-badge">Проверено нами</span>');
+    if (product.supplierType === 'factory') badges.push('<span class="trust-badge">От производителя</span>');
+    if (product.supplierType === 'supplier') badges.push('<span class="trust-badge">Профильный поставщик</span>');
+    return badges.join('');
+  };
 
   const renderNotFound = () => {
     const page = document.getElementById('productPage');
@@ -50,6 +57,7 @@
         </div>
         <aside class="product-page-info">
           <span class="product-badge">${product.category}</span>
+          <div class="trust-badges">${getTrustBadges(product)}</div>
           <h1>${product.name}</h1>
           <p class="product-subcategory">${product.subcategory}</p>
           <ul class="product-meta product-page-meta">
