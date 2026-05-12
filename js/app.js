@@ -192,9 +192,15 @@ const applySiteContacts = () => {
 document.addEventListener('DOMContentLoaded', () => {
   updateYear();
   applySiteContacts();
-  renderFeatured();
-  populateCategories();
-  populateSubcategories();
-  renderCatalog();
-  bindCatalogControls();
+
+  if (document.getElementById('featured-products')) {
+    renderFeatured();
+  }
+
+  if (document.getElementById('catalog-products')) {
+    populateCategories();
+    populateSubcategories();
+    renderCatalog();
+    bindCatalogControls();
+  }
 });

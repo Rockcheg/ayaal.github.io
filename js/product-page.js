@@ -81,7 +81,7 @@
         <div class="grid grid-2">
           <article class="feature-card"><h2>Описание</h2><p>${product.description}</p></article>
           <article class="feature-card"><h2>Характеристики товара</h2><ul class="list-clean"><li>${product.category}</li><li>${product.subcategory}</li><li>Артикул: ${product.sku}</li><li>Вес: ${product.weight}</li></ul></article>
-          <article class="feature-card"><h2>Как оформить заказ</h2><ol class="steps-list"><li>Откройте удобный мессенджер</li><li>Отправьте сообщение по кнопке выше</li><li>Подтвердите наличие, цену и срок доставки</li></ol></article>
+          <article class="feature-card"><h2>Как оформить заказ</h2><ol class="steps-list"><li>Откройте удобный мессенджер</li><li>Отправьте сообщение по кнопке выше</li><li>Подтвердите наличие, цену товара и ориентировочную доставку</li></ol></article>
         </div>
         <article class="related-section">
           <h2>Похожие товары</h2>

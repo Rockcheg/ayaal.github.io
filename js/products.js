@@ -13,7 +13,7 @@ window.products = [
     supplierType: 'factory',
     image: 'images/placeholder-eva.svg',
     images: ['images/placeholder-eva.svg', 'images/placeholder-console.svg', 'images/placeholder-booster.svg'],
-    description: 'Комплект EVA ковриков с бортиками для салона Haval Dargo / Big Dog 1 поколения.'
+    description: 'Комплект EVA ковриков с бортиками для салона Haval Big Dog / DaGou / Dargo.'
   },
   {
     id: 2,
