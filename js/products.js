@@ -67,12 +67,15 @@ window.products = [
     weight: '1.0 кг',
     sku: 'EXT-DEF-018',
     availability: 'Под заказ',
+    testedByUs: true,
+    supplierType: 'factory',
+  
     image: 'images/placeholder-console.svg',
     images: [
-      'images/placeholder-console.svg',
-      'images/placeholder-eva.svg',
-      'images/placeholder-booster.svg',
-      'images/logo-jin-auto.svg'
+      'images/deflector_1.png',
+      'images/deflector_2png',
+      'images/deflector_3.png',
+      'images/deflector_4.png'
     ],
     description: 'Комплект дефлекторов на 4 двери для комфортного проветривания в любую погоду.'
   },
