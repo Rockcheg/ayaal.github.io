@@ -73,7 +73,7 @@ window.products = [
     image: 'images/placeholder-console.svg',
     images: [
       'images/deflector_1.png',
-      'images/deflector_2png',
+      'images/deflector_2.png',
       'images/deflector_3.png',
       'images/deflector_4.png'
     ],
