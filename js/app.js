@@ -1,5 +1,7 @@
 const siteLinks = window.SITE_LINKS || {};
 
+const FALLBACK_IMAGE = 'images/placeholder-console.svg';
+
 const formatPrice = (value) => new Intl.NumberFormat('ru-RU').format(value) + ' ₽';
 
 const getTrustBadges = (product) => {
@@ -19,7 +21,7 @@ const createProductCard = (product) => {
   return `
     <article class="product-card" data-product-id="${product.id}">
       <div class="product-image-wrap">
-        <img src="${product.image}" alt="${product.name}">
+        <img src="${product.image || FALLBACK_IMAGE}" alt="${product.name}">
       </div>
       <div class="product-content">
         <span class="product-badge">${product.category}</span>

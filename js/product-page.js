@@ -2,6 +2,8 @@
   const siteLinks = window.SITE_LINKS || {};
   const products = Array.isArray(window.products) ? window.products : [];
 
+  const FALLBACK_IMAGE = 'images/placeholder-console.svg';
+
   const formatPrice = (value) => new Intl.NumberFormat('ru-RU').format(value) + ' ₽';
   const getIdFromQuery = () => new URLSearchParams(window.location.search).get('id');
   const getTrustBadges = (product) => {
@@ -27,8 +29,11 @@
   };
 
   const createGallery = (product) => {
-    const images = Array.isArray(product.images) && product.images.length ? product.images : [product.image];
-    return { images, main: images[0] };
+    const images = Array.isArray(product.images) && product.images.length
+      ? product.images
+      : [product.image || FALLBACK_IMAGE];
+    const safeImages = images.map((src) => src || FALLBACK_IMAGE);
+    return { images: safeImages, main: safeImages[0] || FALLBACK_IMAGE };
   };
 
   const renderProduct = (product) => {
