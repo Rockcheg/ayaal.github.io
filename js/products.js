@@ -70,12 +70,12 @@ window.products = [
     testedByUs: true,
     supplierType: 'factory',
   
-    image: 'images/placeholder-console.svg',
+    image: 'images/shapka_deflector_1.svg',
     images: [
-      'images/deflector_1.png',
-      'images/deflector_2.png',
-      'images/deflector_3.png',
-      'images/deflector_4.png'
+      'images/Deflector_1.png',
+      'images/Deflector_2.png',
+      'images/Deflector_3.png',
+      'images/Deflector_4.png'
     ],
     description: 'Комплект дефлекторов на 4 двери для комфортного проветривания в любую погоду.'
   },
