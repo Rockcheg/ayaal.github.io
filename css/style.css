@@ -826,11 +826,23 @@ h3 { font-size: 21px; }
   width: 42px;
   height: 42px;
   border-radius: 999px;
-  font-size: 30px;
-  line-height: 1;
+  font-size: 0;
+  line-height: 0;
+}
+
+.lightbox-nav::before {
+  content: "";
+  width: 11px;
+  height: 11px;
+  border-top: 2px solid #f6e9cb;
+  border-right: 2px solid #f6e9cb;
+  transform: rotate(45deg);
+  display: block;
+  margin-left: -1px;
 }
 
 .lightbox-prev { left: 10px; }
+.lightbox-prev::before { transform: rotate(-135deg); margin-left: 1px; }
 .lightbox-next { right: 10px; }
 
 @media (max-width: 980px) {
