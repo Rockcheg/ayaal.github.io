@@ -801,6 +801,7 @@ h3 { font-size: 21px; }
   box-shadow: 0 22px 52px rgba(0,0,0,.4);
   transform: translateY(8px) scale(.985);
   transition: transform .24s ease;
+  z-index: 1;
 }
 
 .product-lightbox.is-open .product-lightbox-dialog {
@@ -818,6 +819,8 @@ h3 { font-size: 21px; }
   opacity: .94;
   transform: scale(.992);
   transition: opacity .22s ease, transform .24s ease;
+  position: relative;
+  z-index: 1;
 }
 
 .product-lightbox.is-open .product-lightbox-image {
@@ -855,6 +858,7 @@ h3 { font-size: 21px; }
   height: 38px;
   border-radius: 999px;
   font-size: 20px;
+  z-index: 4;
 }
 
 .lightbox-nav {
@@ -866,6 +870,7 @@ h3 { font-size: 21px; }
   border-radius: 999px;
   font-size: 0;
   line-height: 0;
+  z-index: 3;
 }
 
 .lightbox-nav::before {
@@ -883,6 +888,10 @@ h3 { font-size: 21px; }
 .lightbox-prev::before { transform: rotate(-135deg); margin-left: 1px; }
 .lightbox-next { right: 10px; }
 
+.lightbox-nav:hover {
+  transform: translateY(-50%);
+}
+
 @media (max-width: 980px) {
   .product-page-layout, .product-page-actions { grid-template-columns: 1fr; }
   .related-section { padding: 18px; }
@@ -893,6 +902,9 @@ h3 { font-size: 21px; }
   }
   .lightbox-prev { left: 12px; }
   .lightbox-next { right: 12px; }
+  .lightbox-nav:hover {
+    transform: none;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
