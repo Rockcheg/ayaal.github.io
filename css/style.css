@@ -364,6 +364,15 @@ h3 { font-size: 21px; }
   height: 100%;
   object-fit: cover;
   opacity: .96;
+  transform: scale(1);
+  transition: transform .35s ease, opacity .35s ease;
+  will-change: transform;
+}
+
+.product-card:hover .product-image-wrap img,
+.product-card:focus-within .product-image-wrap img {
+  transform: scale(1.035);
+  opacity: 1;
 }
 
 .product-content {
@@ -649,6 +658,12 @@ h3 { font-size: 21px; }
   width: 100%;
   border-radius: 12px;
   cursor: zoom-in;
+  opacity: 1;
+  transition: opacity .24s ease;
+}
+
+.product-page-main-image img.is-switching {
+  opacity: .72;
 }
 
 .product-page-thumbs {
@@ -669,6 +684,8 @@ h3 { font-size: 21px; }
 
 .thumb-btn img { width: 100%; height: 100%; object-fit: cover; border-radius: 7px; }
 .thumb-btn.active { border-color: #b98f44; box-shadow: 0 0 0 2px rgba(185,143,68,.2); }
+.thumb-btn { transition: border-color .2s ease, transform .2s ease, box-shadow .2s ease; }
+.thumb-btn:hover { transform: translateY(-1px); border-color: #b98f44; }
 
 .product-page-info {
   background: #fff;
@@ -765,6 +782,12 @@ h3 { font-size: 21px; }
   position: absolute;
   inset: 0;
   background: rgba(13, 12, 10, .72);
+  opacity: 0;
+  transition: opacity .24s ease;
+}
+
+.product-lightbox.is-open .product-lightbox-backdrop {
+  opacity: 1;
 }
 
 .product-lightbox-dialog {
@@ -792,7 +815,14 @@ h3 { font-size: 21px; }
   margin: 0 auto;
   object-fit: contain;
   border-radius: 12px;
-  transition: opacity .22s ease;
+  opacity: .94;
+  transform: scale(.992);
+  transition: opacity .22s ease, transform .24s ease;
+}
+
+.product-lightbox.is-open .product-lightbox-image {
+  opacity: 1;
+  transform: scale(1);
 }
 
 .product-lightbox-image.is-fading {
@@ -807,6 +837,14 @@ h3 { font-size: 21px; }
   background: rgba(24, 19, 13, .84);
   color: #f6e9cb;
   cursor: pointer;
+  transition: background .18s ease, border-color .18s ease, transform .18s ease, box-shadow .18s ease;
+}
+
+.lightbox-btn:hover {
+  background: rgba(45, 35, 21, .92);
+  border-color: #e1c183;
+  box-shadow: 0 8px 20px rgba(0,0,0,.28);
+  transform: translateY(-1px);
 }
 
 .lightbox-close {
@@ -858,9 +896,19 @@ h3 { font-size: 21px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .product-image-wrap img,
+  .product-page-main-image img,
+  .thumb-btn,
+  .lightbox-btn,
   .product-lightbox,
   .product-lightbox-dialog,
-  .product-lightbox-image {
+  .product-lightbox-image,
+  .product-lightbox-backdrop {
     transition: none;
+  }
+
+  .product-card:hover .product-image-wrap img,
+  .product-card:focus-within .product-image-wrap img {
+    transform: none;
   }
 }

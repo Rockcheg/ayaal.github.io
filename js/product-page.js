@@ -123,9 +123,16 @@
     const updateMainImage = (index) => {
       const safeIndex = (index + images.length) % images.length;
       currentIndex = safeIndex;
-      if (mainImg) mainImg.src = images[safeIndex];
+      if (mainImg) {
+        mainImg.classList.add('is-switching');
+        mainImg.src = images[safeIndex];
+      }
       page.querySelectorAll('.thumb-btn').forEach((b, i) => b.classList.toggle('active', i === safeIndex));
     };
+
+    mainImg?.addEventListener('load', () => {
+      mainImg.classList.remove('is-switching');
+    });
 
     const updateLightboxImage = () => {
       if (!lightboxImage) return;
