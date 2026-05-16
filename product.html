@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Каталог — JINAUTO14</title>
-  <meta name="description" content="Каталог автотоваров для Haval Dargo / Big Dog: цена, ориентировочная цена с доставкой и вес.">
+  <title>Товар — JINAUTO14</title>
+  <meta name="description" content="Карточка товара JIN AUTO: цена, доставка, характеристики и заказ через мессенджеры.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -30,28 +30,14 @@
   </header>
 
   <main>
-    <section class="page-hero">
+    <section class="page-hero section-tight">
       <div class="container">
-        <span class="eyebrow">Каталог</span>
-        <h1>Товары для Haval Dargo / Big Dog</h1>
-        <p class="lead narrow">Выберите нужную позицию и свяжитесь с нами через Telegram или MAX прямо из карточки товара.</p>
+        <nav id="breadcrumbs" class="breadcrumbs"></nav>
       </div>
     </section>
 
     <section class="section section-tight">
-      <div class="container">
-        <div class="catalog-toolbar">
-          <input id="searchInput" class="input" type="search" placeholder="Поиск по названию, описанию, артикулу">
-          <select id="categoryFilter" class="input input-select">
-            <option value="all">Все категории</option>
-          </select>
-          <select id="subcategoryFilter" class="input input-select">
-            <option value="all">Все подкатегории</option>
-          </select>
-        </div>
-        <div id="catalog-products" class="product-grid"></div>
-        <p id="emptyState" class="empty-state hidden">Ничего не найдено. Попробуйте изменить поиск или категорию.</p>
-      </div>
+      <div class="container" id="productPage"></div>
     </section>
   </main>
 
@@ -59,7 +45,7 @@
     <div class="container footer-wrap">
       <p>© <span id="year"></span> JINAUTO14</p>
       <div class="footer-links">
-        <a href="index.html">Главная</a>
+        <a href="catalog.html">Каталог</a>
         <a href="order-parts.html">Запчасти под заказ</a>
         <a href="contacts.html">Контакты</a>
       </div>
@@ -69,5 +55,6 @@
   <script src="js/constants.js"></script>
   <script src="js/products.js"></script>
   <script src="js/app.js"></script>
+  <script src="js/product-page.js"></script>
 </body>
 </html>
