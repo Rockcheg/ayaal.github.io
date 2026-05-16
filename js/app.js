@@ -197,6 +197,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (document.getElementById('featured-products')) {
     renderFeatured();
+    bindProductCards();
   }
 
   if (document.getElementById('catalog-products')) {

@@ -67,17 +67,14 @@ window.products = [
     weight: '1.0 кг',
     sku: 'EXT-DEF-018',
     availability: 'Под заказ',
-    testedByUs: true,
-    supplierType: 'factory',
-  
-    image: 'images/shapka_deflector_1.svg',
+    image: 'images/placeholder-console.svg',
     images: [
-      'images/Deflector_1.png',
-      'images/Deflector_2.png',
-      'images/Deflector_3.png',
-      'images/Deflector_4.png'
+      'images/placeholder-console.svg',
+      'images/placeholder-eva.svg',
+      'images/placeholder-booster.svg',
+      'images/logo-jin-auto.svg'
     ],
-    description: 'Дефлекторы окон для Haval Dargo / Big Dog — комплект из 4 элементов на все двери. Помогают комфортно проветривать салон в дождь и снег, уменьшают попадание капель и брызг в салон, а также аккуратно дополняют внешний вид автомобиля. Плотно прилегают по форме окна и смотрятся в заводском стиле.'
+    description: 'Комплект дефлекторов на 4 двери для комфортного проветривания в любую погоду.'
   },
   {
     id: 6,
