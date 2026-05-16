@@ -55,7 +55,7 @@
     page.innerHTML = `
       <div class="product-page-layout">
         <div>
-          <div class="product-page-main-image"><img id="mainProductImage" src="${main}" alt="${product.name}"></div>
+          <div class="product-page-main-image"><img id="mainProductImage" src="${main}" alt="${product.name}" role="button" tabindex="0" aria-label="Открыть изображение в полном размере"></div>
           <div class="product-page-thumbs">
             ${images.map((src, idx) => `<button class="thumb-btn ${idx===0?'active':''}" data-src="${src}"><img src="${src}" alt="${product.name} фото ${idx+1}"></button>`).join('')}
           </div>
@@ -93,6 +93,15 @@
           <div class="related-links" id="relatedProducts"></div>
         </article>
       </section>
+      <div id="productLightbox" class="product-lightbox" aria-hidden="true">
+        <div class="product-lightbox-backdrop" data-lightbox-close="true"></div>
+        <div class="product-lightbox-dialog" role="dialog" aria-modal="true" aria-label="Просмотр изображения товара">
+          <button id="lightboxClose" class="lightbox-btn lightbox-close" type="button" aria-label="Закрыть изображение">✕</button>
+          <img id="lightboxImage" class="product-lightbox-image" src="${main}" alt="${product.name}">
+          <button id="lightboxPrev" class="lightbox-btn lightbox-nav lightbox-prev" type="button" aria-label="Предыдущее изображение">‹</button>
+          <button id="lightboxNext" class="lightbox-btn lightbox-nav lightbox-next" type="button" aria-label="Следующее изображение">›</button>
+        </div>
+      </div>
     `;
 
     const related = products.filter((p) => p.id !== product.id && (p.subcategory === product.subcategory || p.category === product.category)).slice(0, 4);
@@ -104,11 +113,86 @@
     }
 
     const mainImg = document.getElementById('mainProductImage');
-    page.querySelectorAll('.thumb-btn').forEach((btn) => {
+    const lightbox = document.getElementById('productLightbox');
+    const lightboxImage = document.getElementById('lightboxImage');
+    const closeBtn = document.getElementById('lightboxClose');
+    const prevBtn = document.getElementById('lightboxPrev');
+    const nextBtn = document.getElementById('lightboxNext');
+    let currentIndex = Math.max(0, images.indexOf(main));
+
+    const updateMainImage = (index) => {
+      const safeIndex = (index + images.length) % images.length;
+      currentIndex = safeIndex;
+      if (mainImg) mainImg.src = images[safeIndex];
+      page.querySelectorAll('.thumb-btn').forEach((b, i) => b.classList.toggle('active', i === safeIndex));
+    };
+
+    const updateLightboxImage = () => {
+      if (!lightboxImage) return;
+      lightboxImage.classList.add('is-fading');
+      requestAnimationFrame(() => {
+        lightboxImage.src = images[currentIndex];
+        lightboxImage.classList.remove('is-fading');
+      });
+    };
+
+    const closeLightbox = () => {
+      if (!lightbox) return;
+      lightbox.classList.remove('is-open');
+      lightbox.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('no-scroll');
+    };
+
+    const openLightbox = () => {
+      if (!lightbox) return;
+      updateLightboxImage();
+      lightbox.classList.add('is-open');
+      lightbox.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('no-scroll');
+    };
+
+    if (prevBtn && nextBtn && images.length <= 1) {
+      prevBtn.hidden = true;
+      nextBtn.hidden = true;
+    }
+
+    closeBtn?.addEventListener('click', closeLightbox);
+    lightbox?.addEventListener('click', (event) => {
+      if (event.target instanceof HTMLElement && event.target.dataset.lightboxClose === 'true') {
+        closeLightbox();
+      }
+    });
+
+    prevBtn?.addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      updateMainImage(currentIndex);
+      updateLightboxImage();
+    });
+
+    nextBtn?.addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % images.length;
+      updateMainImage(currentIndex);
+      updateLightboxImage();
+    });
+
+    mainImg?.addEventListener('click', openLightbox);
+    mainImg?.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        openLightbox();
+      }
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (!lightbox || !lightbox.classList.contains('is-open')) return;
+      if (event.key === 'Escape') closeLightbox();
+      if (images.length > 1 && event.key === 'ArrowLeft') prevBtn?.click();
+      if (images.length > 1 && event.key === 'ArrowRight') nextBtn?.click();
+    });
+
+    page.querySelectorAll('.thumb-btn').forEach((btn, idx) => {
       btn.addEventListener('click', () => {
-        page.querySelectorAll('.thumb-btn').forEach((b) => b.classList.remove('active'));
-        btn.classList.add('active');
-        if (mainImg) mainImg.src = btn.dataset.src;
+        updateMainImage(idx);
       });
     });
   };
