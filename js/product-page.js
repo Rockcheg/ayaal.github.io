@@ -1,0 +1,216 @@
+(() => {
+  const siteLinks = window.SITE_LINKS || {};
+  const products = Array.isArray(window.products) ? window.products : [];
+
+  const FALLBACK_IMAGE = 'images/placeholder-console.svg';
+
+  const formatPrice = (value) => new Intl.NumberFormat('ru-RU').format(value) + ' ₽';
+  const getIdFromQuery = () => new URLSearchParams(window.location.search).get('id');
+  const getTrustBadges = (product) => {
+    const badges = [];
+    if (product.testedByUs) badges.push('<span class="trust-badge">Проверено нами</span>');
+    if (product.supplierType === 'factory') badges.push('<span class="trust-badge">От производителя</span>');
+    if (product.supplierType === 'supplier') badges.push('<span class="trust-badge">Профильный поставщик</span>');
+    return badges.join('');
+  };
+
+  const renderNotFound = () => {
+    const page = document.getElementById('productPage');
+    const crumbs = document.getElementById('breadcrumbs');
+    if (!page) return;
+    if (crumbs) crumbs.innerHTML = '<a href="index.html">Главная</a> <span>→</span> <a href="catalog.html">Каталог</a> <span>→</span> <span>Товар не найден</span>';
+    page.innerHTML = `
+      <article class="feature-card">
+        <h1>Товар не найден</h1>
+        <p class="lead narrow">Возможно, ссылка устарела или товар был удалён из каталога.</p>
+        <a class="btn btn-primary" href="catalog.html">Вернуться в каталог</a>
+      </article>
+    `;
+  };
+
+  const createGallery = (product) => {
+    const images = Array.isArray(product.images) && product.images.length
+      ? product.images
+      : [product.image || FALLBACK_IMAGE];
+    const safeImages = images.map((src) => src || FALLBACK_IMAGE);
+    return { images: safeImages, main: safeImages[0] || FALLBACK_IMAGE };
+  };
+
+  const renderProduct = (product) => {
+    const page = document.getElementById('productPage');
+    const crumbs = document.getElementById('breadcrumbs');
+    if (!page) return;
+
+    const { images, main } = createGallery(product);
+    const msg = encodeURIComponent(`Здравствуйте! Интересует товар: ${product.name} (${product.sku}).`);
+
+    if (crumbs) {
+      crumbs.innerHTML = `<a href="index.html">Главная</a> <span>→</span> <a href="catalog.html">Каталог</a> <span>→</span> <span>${product.name}</span>`;
+    }
+
+    document.title = `${product.name} — JINAUTO14`;
+    const meta = document.querySelector('meta[name="description"]');
+    if (meta) meta.setAttribute('content', `${product.name}. ${product.description}`);
+
+    page.innerHTML = `
+      <div class="product-page-layout">
+        <div>
+          <div class="product-page-main-image"><img id="mainProductImage" src="${main}" alt="${product.name}" role="button" tabindex="0" aria-label="Открыть изображение в полном размере"></div>
+          <div class="product-page-thumbs">
+            ${images.map((src, idx) => `<button class="thumb-btn ${idx===0?'active':''}" data-src="${src}"><img src="${src}" alt="${product.name} фото ${idx+1}"></button>`).join('')}
+          </div>
+        </div>
+        <aside class="product-page-info">
+          <span class="product-badge">${product.category}</span>
+          <div class="trust-badges">${getTrustBadges(product)}</div>
+          <h1>${product.name}</h1>
+          <p class="product-subcategory">${product.subcategory}</p>
+          <ul class="product-meta product-page-meta">
+            <li><strong>Артикул:</strong> ${product.sku}</li>
+            <li><strong>Наличие:</strong> ${product.availability}</li>
+            <li><strong>Вес:</strong> ${product.weight}</li>
+          </ul>
+          <div class="product-prices">
+            <div class="price-box"><span class="price-label">Цена товара</span><strong class="price-value">${formatPrice(product.price)}</strong></div>
+            <div class="price-box price-box-delivery"><span class="price-label">Ориентировочно с доставкой</span><strong class="price-value">${formatPrice(product.deliveryPrice)}</strong></div>
+          </div>
+          <div class="product-page-actions">
+            <a class="btn btn-primary" target="_blank" rel="noopener" href="${siteLinks.telegramProfile}?text=${msg}">Заказать в Telegram</a>
+            <a class="btn btn-secondary" target="_blank" rel="noopener" href="${siteLinks.maxProfile}?text=${msg}">Написать в MAX</a>
+            <a class="btn btn-secondary" target="_blank" rel="noopener" href="${siteLinks.whatsapp}?text=${msg}">WhatsApp</a>
+            <a class="btn btn-back-catalog" href="catalog.html">← Вернуться в каталог</a>
+          </div>
+        </aside>
+      </div>
+      <section class="section section-tight">
+        <div class="grid grid-2">
+          <article class="feature-card"><h2>Описание</h2><p>${product.description}</p></article>
+          <article class="feature-card"><h2>Характеристики товара</h2><ul class="list-clean"><li>${product.category}</li><li>${product.subcategory}</li><li>Артикул: ${product.sku}</li><li>Вес: ${product.weight}</li></ul></article>
+          <article class="feature-card"><h2>Как оформить заказ</h2><ol class="steps-list"><li>Откройте удобный мессенджер</li><li>Отправьте сообщение по кнопке выше</li><li>Подтвердите наличие, цену товара и ориентировочную доставку</li></ol></article>
+        </div>
+        <article class="related-section">
+          <h2>Похожие товары</h2>
+          <div class="related-links" id="relatedProducts"></div>
+        </article>
+      </section>
+      <div id="productLightbox" class="product-lightbox" aria-hidden="true">
+        <div class="product-lightbox-backdrop" data-lightbox-close="true"></div>
+        <div class="product-lightbox-dialog" role="dialog" aria-modal="true" aria-label="Просмотр изображения товара">
+          <button id="lightboxClose" class="lightbox-btn lightbox-close" type="button" aria-label="Закрыть изображение">✕</button>
+          <img id="lightboxImage" class="product-lightbox-image" src="${main}" alt="${product.name}">
+          <button id="lightboxPrev" class="lightbox-btn lightbox-nav lightbox-prev" type="button" aria-label="Предыдущее изображение">‹</button>
+          <button id="lightboxNext" class="lightbox-btn lightbox-nav lightbox-next" type="button" aria-label="Следующее изображение">›</button>
+        </div>
+      </div>
+    `;
+
+    const related = products.filter((p) => p.id !== product.id && (p.subcategory === product.subcategory || p.category === product.category)).slice(0, 4);
+    const relatedEl = document.getElementById('relatedProducts');
+    if (relatedEl) {
+      relatedEl.innerHTML = related.length
+        ? related.map((p) => `<a class="text-link" href="product.html?id=${p.id}">${p.name}</a>`).join('<br>')
+        : '<span class="empty-state">Похожие товары пока не добавлены.</span>';
+    }
+
+    const mainImg = document.getElementById('mainProductImage');
+    const lightbox = document.getElementById('productLightbox');
+    const lightboxImage = document.getElementById('lightboxImage');
+    const closeBtn = document.getElementById('lightboxClose');
+    const prevBtn = document.getElementById('lightboxPrev');
+    const nextBtn = document.getElementById('lightboxNext');
+    let currentIndex = Math.max(0, images.indexOf(main));
+
+    const updateMainImage = (index) => {
+      const safeIndex = (index + images.length) % images.length;
+      currentIndex = safeIndex;
+      if (mainImg) {
+        mainImg.classList.add('is-switching');
+        mainImg.src = images[safeIndex];
+      }
+      page.querySelectorAll('.thumb-btn').forEach((b, i) => b.classList.toggle('active', i === safeIndex));
+    };
+
+    mainImg?.addEventListener('load', () => {
+      mainImg.classList.remove('is-switching');
+    });
+
+    const updateLightboxImage = () => {
+      if (!lightboxImage) return;
+      lightboxImage.classList.add('is-fading');
+      requestAnimationFrame(() => {
+        lightboxImage.src = images[currentIndex];
+        lightboxImage.classList.remove('is-fading');
+      });
+    };
+
+    const closeLightbox = () => {
+      if (!lightbox) return;
+      lightbox.classList.remove('is-open');
+      lightbox.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('no-scroll');
+    };
+
+    const openLightbox = () => {
+      if (!lightbox) return;
+      updateLightboxImage();
+      lightbox.classList.add('is-open');
+      lightbox.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('no-scroll');
+    };
+
+    if (prevBtn && nextBtn && images.length <= 1) {
+      prevBtn.hidden = true;
+      nextBtn.hidden = true;
+    }
+
+    closeBtn?.addEventListener('click', closeLightbox);
+    lightbox?.addEventListener('click', (event) => {
+      if (event.target instanceof HTMLElement && event.target.dataset.lightboxClose === 'true') {
+        closeLightbox();
+      }
+    });
+
+    prevBtn?.addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      updateMainImage(currentIndex);
+      updateLightboxImage();
+    });
+
+    nextBtn?.addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % images.length;
+      updateMainImage(currentIndex);
+      updateLightboxImage();
+    });
+
+    mainImg?.addEventListener('click', openLightbox);
+    mainImg?.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        openLightbox();
+      }
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (!lightbox || !lightbox.classList.contains('is-open')) return;
+      if (event.key === 'Escape') closeLightbox();
+      if (images.length > 1 && event.key === 'ArrowLeft') prevBtn?.click();
+      if (images.length > 1 && event.key === 'ArrowRight') nextBtn?.click();
+    });
+
+    page.querySelectorAll('.thumb-btn').forEach((btn, idx) => {
+      btn.addEventListener('click', () => {
+        updateMainImage(idx);
+      });
+    });
+  };
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const id = Number(getIdFromQuery());
+    const product = products.find((p) => p.id === id);
+    if (!product) {
+      renderNotFound();
+      return;
+    }
+    renderProduct(product);
+  });
+})();

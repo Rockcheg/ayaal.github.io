@@ -1,13 +1,21 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" role="img" aria-labelledby="title desc">
-  <title id="title">Бустер</title>
-  <desc id="desc">Декоративная заглушка для карточки товара.</desc>
-  <rect width="1200" height="750" fill="#0f1629"/>
-  <circle cx="950" cy="170" r="110" fill="#6ba8ff" opacity="0.15"/>
-  <circle cx="260" cy="560" r="140" fill="#8effb3" opacity="0.12"/>
-  <rect x="180" y="170" width="840" height="410" rx="40" fill="#171f37" stroke="#6ba8ff" stroke-width="8"/>
-  <text x="250" y="290" fill="#edf2ff" font-family="Inter, Arial, sans-serif" font-size="76" font-weight="800">БУСТЕР / НАСОС</text>
-  <text x="250" y="360" fill="#a9b4d0" font-family="Inter, Arial, sans-serif" font-size="34">Полезные аксессуары</text>
-  <rect x="250" y="430" width="200" height="80" rx="18" fill="#0d1324" stroke="#8effb3" stroke-width="5"/>
-  <circle cx="870" cy="470" r="48" fill="none" stroke="#8effb3" stroke-width="10"/>
-  <circle cx="760" cy="470" r="48" fill="none" stroke="#6ba8ff" stroke-width="10"/>
+  <title id="title">Авто-гаджеты</title>
+  <desc id="desc">Фирменная заглушка в графитово-золотом стиле.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2c3036"/>
+      <stop offset="100%" stop-color="#181a1f"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f2ddaf"/>
+      <stop offset="100%" stop-color="#bb9349"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="750" fill="url(#bg)"/>
+  <rect x="170" y="150" width="860" height="450" rx="40" fill="#1d2025" stroke="url(#gold)" stroke-width="7"/>
+  <text x="242" y="286" fill="#f7ebcf" font-family="Inter, Arial, sans-serif" font-size="74" font-weight="800">АВТО-ГАДЖЕТЫ</text>
+  <text x="242" y="356" fill="#d3c6ac" font-family="Inter, Arial, sans-serif" font-size="33">Компрессор / Бустер / OBD</text>
+  <rect x="242" y="420" width="230" height="86" rx="18" fill="#f6eddc" stroke="#c0974d" stroke-width="4"/>
+  <rect x="510" y="420" width="230" height="86" rx="18" fill="#f6eddc" stroke="#c0974d" stroke-width="4"/>
+  <rect x="778" y="420" width="230" height="86" rx="18" fill="#f6eddc" stroke="#c0974d" stroke-width="4"/>
 </svg>
