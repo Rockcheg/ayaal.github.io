@@ -46,16 +46,16 @@ window.products = [
   },
   {
     id: 4,
-    name: 'Защитная накладка на пороги (комплект)',
+    name: 'Защитная накладка на зеркала',
     category: 'Экстерьер и стайлинг',
     subcategory: 'Накладки на пороги',
     price: 4200,
     deliveryCost: 900,
     weight: '1.3 кг',
     sku: 'EXT-SILL-022',
-    availability: 'В наличии',
+    availability: 'Под заказ',
     image: 'images/placeholder-console.svg',
-    description: 'Металлизированные накладки на пороги, защищают ЛКП от царапин и следов обуви.'
+    description: 'Комплект накладок на боковые зеркала для Haval Dargo / Big Dog. В набор входят верхние накладки с козырьком и нижние накладки на корпус зеркала. Такой комплект помогает защитить верхнюю и нижнюю часть зеркала от мелких царапин и брызг, а также делает внешний вид автомобиля более аккуратным и завершённым.'
   },
   {
     id: 5,
@@ -67,14 +67,14 @@ window.products = [
     weight: '1.0 кг',
     sku: 'EXT-DEF-018',
     availability: 'Под заказ',
-    image: 'images/placeholder-console.svg',
+    image: 'images/deflector-card-1.svg',
     images: [
-      'images/placeholder-console.svg',
-      'images/placeholder-eva.svg',
-      'images/placeholder-booster.svg',
-      'images/logo-jin-auto.svg'
+      'images/Deflector_1.png',
+      'images/Deflector_2.png',
+      'images/Deflector_3.png',
+      'images/Deflector_4.png'
     ],
-    description: 'Комплект дефлекторов на 4 двери для комфортного проветривания в любую погоду.'
+    description: 'Комплект дефлекторов окон для Haval Dargo / Big Dog на 4 двери. Обеспечивает комфортное проветривание в любую погоду, помогает защитить салон от дождя и брызг, подчёркивает внешний вид автомобиля.'
   },
   {
     id: 6,
