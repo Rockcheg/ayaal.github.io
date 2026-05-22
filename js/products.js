@@ -129,7 +129,7 @@ window.products = [
     availability: 'Под заказ',
     testedByUs: true,
     supplierType: 'factory',
-    image: 'image/shapka_deflector_1.svg',
+    image: 'images/shapka_deflector_1.svg',
     images: [
       'images/Deflector_1.png',
       'images/Deflector_2.png',
@@ -148,7 +148,7 @@ window.products = [
     weight: '0,5 кг',
     sku: 'TB-EXT-001',
     availability: 'Под заказ',
-    image: 'image/shapka_nakladka_1.png',
+    image: 'images/shapka_nakladka_1.png',
     images: [
       'images/Nakladka_1.png',
       'images/Nakladka_2.png',
