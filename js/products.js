@@ -129,12 +129,12 @@ window.products = [
     availability: 'Под заказ',
     testedByUs: true,
     supplierType: 'factory',
-    image: 'image/shapka_deflector_1.svg.',
+    image: 'image/shapka_deflector_1.svg',
     images: [
       'images/Deflector_1.png',
       'images/Deflector_2.png',
       'images/Deflector_3.png',
-      'images/Deflector_4.png.',
+      'images/Deflector_4.png',
     ],
     description: 'Комплект дефлекторов окон для Haval Dargo / Big Dog на 4 двери. Обеспечивает комфортное проветривание в любую погоду, помогает защитить салон от дождя и брызг, подчёркивает внешний вид автомобиля.'
   },
@@ -152,7 +152,7 @@ window.products = [
     images: [
       'images/Nakladka_1.png',
       'images/Nakladka_2.png',
-      'images/Nakladka_3.png.',
+      'images/Nakladka_3.png',
     ],
     description: 'Комплект накладок на боковые зеркала для Haval Dargo / Big Dog. В набор входят верхние накладки с козырьком и нижние накладки на корпус зеркала. Такой комплект помогает защитить верхнюю и нижнюю часть зеркала от мелких царапин и брызг, а также делает внешний вид автомобиля более аккуратным и завершённым.'
   },
