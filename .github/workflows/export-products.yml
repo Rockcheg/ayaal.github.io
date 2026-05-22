@@ -1,0 +1,38 @@
+name: Export products from Excel
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  export-products:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install openpyxl
+
+      - name: Export products.js from Excel
+        run: python tools/export_products_from_excel.py --excel catalog-public.xlsx --out js/products.js
+
+      - name: Commit updated products.js
+        run: |
+          if git diff --quiet -- js/products.js; then
+            echo "No changes in js/products.js"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add js/products.js
+          git commit -m "chore: export products.js from catalog-public.xlsx"
+          git push
