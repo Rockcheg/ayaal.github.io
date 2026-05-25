@@ -72,7 +72,7 @@
           </ul>
           <div class="product-prices">
             <div class="price-box"><span class="price-label">Цена товара</span><strong class="price-value">${formatPrice(product.price)}</strong></div>
-            <div class="price-box price-box-delivery"><span class="price-label">Ориентировочно с доставкой</span><strong class="price-value">${formatPrice(product.deliveryPrice)}</strong></div>
+            <div class="price-box price-box-delivery"><span class="price-label">Доставка ≈</span><strong class="price-value">${formatPrice(product.deliveryCost ?? product.deliveryPrice ?? 0)}</strong></div>
           </div>
           <div class="product-page-actions">
             <a class="btn btn-primary" target="_blank" rel="noopener" href="${siteLinks.telegramProfile}?text=${msg}">Заказать в Telegram</a>
@@ -86,7 +86,7 @@
         <div class="grid grid-2">
           <article class="feature-card"><h2>Описание</h2><p>${product.description}</p></article>
           <article class="feature-card"><h2>Характеристики товара</h2><ul class="list-clean"><li>${product.category}</li><li>${product.subcategory}</li><li>Артикул: ${product.sku}</li><li>Вес: ${product.weight}</li></ul></article>
-          <article class="feature-card"><h2>Как оформить заказ</h2><ol class="steps-list"><li>Откройте удобный мессенджер</li><li>Отправьте сообщение по кнопке выше</li><li>Подтвердите наличие, цену товара и ориентировочную доставку</li></ol></article>
+          <article class="feature-card"><h2>Как оформить заказ</h2><ol class="steps-list"><li>Откройте удобный мессенджер</li><li>Отправьте сообщение по кнопке выше</li><li>Подтвердите наличие, окончательную цену товара и примерную стоимость доставки</li></ol></article>
         </div>
         <article class="related-section">
           <h2>Похожие товары</h2>
