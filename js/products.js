@@ -41,8 +41,7 @@ window.products = [
     weight: '1.1 кг',
     sku: 'TRUNK-ORG-003',
     availability: 'Под заказ',
-    image: 'images/placeholder-console.svg',
-    description: 'Складной органайзер с усиленными стенками для аккуратного хранения вещей в багажнике.'
+    description: 'Магнитный держатель телефона на дефлектор'
   },
   {
     id: 4,
@@ -67,14 +66,7 @@ window.products = [
     weight: '1.0 кг',
     sku: 'EXT-DEF-018',
     availability: 'Под заказ',
-    image: 'images/placeholder-console.svg',
-    images: [
-      'images/placeholder-console.svg',
-      'images/placeholder-eva.svg',
-      'images/placeholder-booster.svg',
-      'images/logo-jin-auto.svg'
-    ],
-    description: 'Комплект дефлекторов на 4 двери для комфортного проветривания в любую погоду.'
+    description: 'Гибкая LED-подсветка салона с USB'
   },
   {
     id: 6,
@@ -86,8 +78,7 @@ window.products = [
     weight: '2.2 кг',
     sku: 'LGT-FOG-041',
     availability: 'Под заказ',
-    image: 'images/placeholder-booster.svg',
-    description: 'Комплект задней оптики с динамической индикацией поворота и улучшенной видимостью.'
+    description: 'Автомобильный видеорегистратор 1080p с G-сенсором'
   },
   {
     id: 7,
@@ -127,8 +118,19 @@ window.products = [
     weight: '3.8 кг',
     sku: 'RACK-CROSS-012',
     availability: 'Под заказ',
-    image: 'images/placeholder-console.svg',
-    description: 'Алюминиевые поперечины под штатные места крепления для перевозки боксов и грузов.'
+    description: 'Накладки на подстаканники'
+  },
+  {
+    id: 9,
+    name: 'Накладки',
+    category: 'Салон и интерьер',
+    subcategory: 'Накладки на элементы интерьера',
+    price: 1199,
+    deliveryCost: 392,
+    weight: '0.7 кг',
+    sku: 'TB-INT-006',
+    availability: 'Под заказ',
+    description: 'Накладки на подстаканники'
   },
   {
     id: 10,
