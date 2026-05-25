@@ -65,15 +65,43 @@ def build_case_sensitive_index(root: Path) -> Dict[Tuple[str, ...], str]:
     return index
 
 
-def check_image_path(path_str: str, repo_root: Path, case_index: Dict[Tuple[str, ...], str], row_num: int, field_name: str, warnings: List[str]):
+
+
+def strip_trailing_dot_after_extension(path_str: str) -> str:
+    if not path_str.endswith('.'):
+        return path_str
+    base = path_str[:-1]
+    if '/' in base:
+        filename = base.rsplit('/', 1)[1]
+    else:
+        filename = base
+    return base if '.' in filename else path_str
+
+
+def normalize_image_path(path_str: str, row_num: int, field_name: str, case_index: Dict[Tuple[str, ...], str], warnings: List[str]) -> str:
     normalized = path_str.replace('\\', '/').strip()
+    normalized = strip_trailing_dot_after_extension(normalized)
+
+    if normalized.startswith('image/'):
+        key = tuple(part.lower() for part in normalized.split('/') if part)
+        if key not in case_index:
+            candidate = 'images/' + normalized[len('image/'): ]
+            candidate_key = tuple(part.lower() for part in candidate.split('/') if part)
+            if candidate_key in case_index:
+                warnings.append(f"WARNING: row {row_num}: {field_name} path normalized: {normalized} -> {candidate}")
+                normalized = candidate
+
+    return normalized
+
+def check_image_path(path_str: str, repo_root: Path, case_index: Dict[Tuple[str, ...], str], row_num: int, field_name: str, warnings: List[str]):
+    normalized = path_str
     if not normalized:
         return
     key = tuple(part for part in normalized.split('/') if part)
     lower_key = tuple(part.lower() for part in key)
 
     if lower_key not in case_index:
-        warnings.append(f"WARNING: row {row_num}: field '{field_name}' image not found: {normalized}")
+        warnings.append(f"WARNING: row {row_num}: image file not found: {normalized}")
         return
 
     actual_case_path = case_index[lower_key]
@@ -164,7 +192,7 @@ def main():
         if product_id is not None:
             product['id'] = product_id
 
-        for text_field in ['name', 'category', 'subcategory', 'weight', 'sku', 'availability', 'image', 'description']:
+        for text_field in ['name', 'category', 'subcategory', 'weight', 'sku', 'availability', 'description']:
             text_val = to_text(raw.get(text_field))
             if text_val:
                 product[text_field] = text_val
@@ -181,15 +209,20 @@ def main():
         if supplier_type in VALID_SUPPLIER_TYPES:
             product['supplierType'] = supplier_type
 
-        image_list = split_images(raw.get('images'))
-        if image_list:
-            product['images'] = image_list
-
         image_main = to_text(raw.get('image'))
         if image_main:
+            image_main = normalize_image_path(image_main, row_offset, 'image', case_index, warnings)
+            product['image'] = image_main
             check_image_path(image_main, repo_root, case_index, row_offset, 'image', warnings)
-        for img in image_list:
-            check_image_path(img, repo_root, case_index, row_offset, 'images', warnings)
+
+        image_list_raw = split_images(raw.get('images'))
+        image_list = []
+        for img in image_list_raw:
+            normalized_img = normalize_image_path(img, row_offset, 'images', case_index, warnings)
+            image_list.append(normalized_img)
+            check_image_path(normalized_img, repo_root, case_index, row_offset, 'images', warnings)
+        if image_list:
+            product['images'] = image_list
 
         products.append(product)
 
