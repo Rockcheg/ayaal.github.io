@@ -6,15 +6,15 @@ const formatPrice = (value) => new Intl.NumberFormat('ru-RU').format(value) + ' 
 
 const getTrustBadges = (product) => {
   const badges = [];
-  if (product.testedByUs) badges.push('<span class="trust-badge">Проверено нами</span>');
-  if (product.supplierType === 'factory') badges.push('<span class="trust-badge">От производителя</span>');
-  if (product.supplierType === 'supplier') badges.push('<span class="trust-badge">Профильный поставщик</span>');
+  if (product.testedByUs) badges.push('<span class="trust-badge trust-badge-verified">Проверено нами</span>');
+  if (product.supplierType === 'factory') badges.push('<span class="trust-badge trust-badge-factory">От производителя</span>');
+  if (product.supplierType === 'supplier') badges.push('<span class="trust-badge trust-badge-supplier">Профильный поставщик</span>');
   return badges.join('');
 };
 
 const createProductCard = (product) => {
   const message = `Здравствуйте! Интересует товар: ${product.name} (${product.sku}).`;
-  const telegramMessage = encodeURIComponent(message);
+  const whatsappMessage = encodeURIComponent(message);
   const maxMessage = encodeURIComponent(message);
   const availabilityClass = product.availability.toLowerCase().includes('в наличии') ? 'is-in-stock' : 'is-by-order';
 
@@ -45,7 +45,7 @@ const createProductCard = (product) => {
           <li class="availability-pill ${availabilityClass}"><strong>Наличие:</strong> ${product.availability}</li>
         </ul>
         <div class="product-actions">
-          <a class="btn btn-primary" href="${siteLinks.telegramProfile}?text=${telegramMessage}" target="_blank" rel="noopener">Telegram</a>
+          <a class="btn btn-primary" href="${siteLinks.whatsapp}?text=${whatsappMessage}" target="_blank" rel="noopener">WhatsApp</a>
           <a class="btn btn-secondary" href="${siteLinks.maxProfile}?text=${maxMessage}" target="_blank" rel="noopener">MAX</a>
         </div>
       </div>
