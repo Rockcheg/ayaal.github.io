@@ -8,9 +8,9 @@
   const getIdFromQuery = () => new URLSearchParams(window.location.search).get('id');
   const getTrustBadges = (product) => {
     const badges = [];
-    if (product.testedByUs) badges.push('<span class="trust-badge">Проверено нами</span>');
-    if (product.supplierType === 'factory') badges.push('<span class="trust-badge">От производителя</span>');
-    if (product.supplierType === 'supplier') badges.push('<span class="trust-badge">Профильный поставщик</span>');
+    if (product.testedByUs) badges.push('<span class="trust-badge trust-badge-verified">Проверено нами</span>');
+    if (product.supplierType === 'factory') badges.push('<span class="trust-badge trust-badge-factory">От производителя</span>');
+    if (product.supplierType === 'supplier') badges.push('<span class="trust-badge trust-badge-supplier">Профильный поставщик</span>');
     return badges.join('');
   };
 
@@ -75,9 +75,8 @@
             <div class="price-box price-box-delivery"><span class="price-label">Доставка ≈</span><strong class="price-value">${formatPrice(product.deliveryCost ?? product.deliveryPrice ?? 0)}</strong></div>
           </div>
           <div class="product-page-actions">
-            <a class="btn btn-primary" target="_blank" rel="noopener" href="${siteLinks.telegramProfile}?text=${msg}">Заказать в Telegram</a>
+            <a class="btn btn-primary" target="_blank" rel="noopener" href="${siteLinks.whatsapp}?text=${msg}">Заказать в WhatsApp</a>
             <a class="btn btn-secondary" target="_blank" rel="noopener" href="${siteLinks.maxProfile}?text=${msg}">Написать в MAX</a>
-            <a class="btn btn-secondary" target="_blank" rel="noopener" href="${siteLinks.whatsapp}?text=${msg}">WhatsApp</a>
             <a class="btn btn-back-catalog" href="catalog.html">← Вернуться в каталог</a>
           </div>
         </aside>
