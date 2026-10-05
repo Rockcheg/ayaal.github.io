@@ -157,6 +157,21 @@ const bindProductCards = () => {
   });
 };
 
+
+const injectDevelopmentBanner = () => {
+  if (document.querySelector('.development-banner')) return;
+  const banner = document.createElement('div');
+  banner.className = 'development-banner';
+  banner.setAttribute('role', 'status');
+  banner.innerHTML = `
+    <div class="development-banner-inner">
+      <strong>САЙТ НАХОДИТСЯ В РАЗРАБОТКЕ</strong>
+      <span>Каталог, цены и карточки товаров ещё заполняются. Перед заказом уточняйте актуальную информацию.</span>
+    </div>
+  `;
+  document.body.prepend(banner);
+};
+
 const updateYear = () => {
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
@@ -192,6 +207,7 @@ const applySiteContacts = () => {
 };
 
 document.addEventListener('DOMContentLoaded', () => {
+  injectDevelopmentBanner();
   updateYear();
   applySiteContacts();
 
