@@ -313,5 +313,44 @@ window.products = [
   },
   {
     availability: 'Под заказ'
+  },
+  {
+    "id": 696128008577,
+    "name": "Задний LED- спойлер для Haval Big Dog / Dargo",
+    "category": "Экстерьер и стайлинг",
+    "subcategory": "Спойлеры",
+    "price": 13699,
+    "deliveryCost": 1140,
+    "weight": "2 кг",
+    "sku": "TB-696128008577",
+    "availability": "Под заказ",
+    "image": "images/products/696128008577/01.webp",
+    "images": [
+      "images/products/696128008577/01.webp",
+      "images/products/696128008577/02.webp",
+      "images/products/696128008577/03.webp",
+      "images/products/696128008577/04.webp",
+      "images/products/696128008577/05.webp",
+      "images/products/696128008577/06.webp",
+      "images/products/696128008577/07.webp",
+      "images/products/696128008577/08.webp",
+      "images/products/696128008577/09.webp"
+    ],
+    "description": "Задний спойлер для Haval Big Dog / Dargo: со светодиодной подсветкой; установка без сверления. Комплектацию, применимость и стоимость доставки уточняйте перед заказом.",
+    "vehicles": [
+      {
+        "brand": "Haval",
+        "model": "Big Dog / Dargo",
+        "generation": "",
+        "years": "2020, 2021"
+      }
+    ],
+    "variants": [],
+    "sourceUrl": "https://item.taobao.com/item.htm?id=696128008577&skuId=5388864304931",
+    "taobaoItemId": "696128008577",
+    "taobaoSkuId": "5388864304931",
+    "supplierPriceCny": 840,
+    "exchangeRate": 13.55,
+    "shippingRateRubKg": 570
   }
 ];
