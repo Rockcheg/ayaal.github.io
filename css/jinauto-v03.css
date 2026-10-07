@@ -1,0 +1,9 @@
+.catalog-toolbar { grid-template-columns:minmax(190px,1.4fr) repeat(4,minmax(115px,1fr)); }
+.jinauto-compatibility{margin:12px 0;padding:12px;background:#f8f1e5;border:1px solid #dac7a5;border-radius:3px;font-size:14px}
+.jinauto-compatibility strong{display:block;margin-bottom:6px}
+.jinauto-compatibility ul{margin:0;padding-left:18px;line-height:1.6}
+.jinauto-variant-label{display:block;margin:12px 0;font-size:14px}
+.jinauto-variant-label strong{display:block;margin-bottom:6px}
+.jinauto-variant-label select{display:block;width:100%}
+@media(max-width:1100px){.catalog-toolbar{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:640px){.catalog-toolbar{grid-template-columns:1fr}}
